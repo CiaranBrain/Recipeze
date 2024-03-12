@@ -33,8 +33,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',
+    '.gitpod.io',
     '8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu108.gitpod.io',
-    '127.0.0.1'
+    '8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu110.gitpod.io',
+    '127.0.0.1',
  ]
 
 
