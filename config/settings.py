@@ -31,7 +31,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.herokuapp.com', '8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu108.gitpod.io',]
+ALLOWED_HOSTS = [
+    '.herokuapp.com',
+    '8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu108.gitpod.io',
+    '127.0.0.1'
+ ]
 
 
 # Application definition
@@ -97,6 +101,10 @@ DATABASES = {
 'default':
 dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu108.gitpod.io',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
