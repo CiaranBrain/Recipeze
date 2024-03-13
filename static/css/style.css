@@ -44,3 +44,11 @@ body {
     background-color: var(--butterscotch);
 
 }
+
+
+/* placeholder image */
+
+.scale {
+    height: 100px;
+    width: 100px;
+}

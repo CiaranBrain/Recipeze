@@ -8,6 +8,8 @@
       {% for recipe in recipes %}
       <div class="container recipe-box">
       <ul>
+        <li><img src="{% static 'images/test.jpg' %}" class="scale" alt="placeholder">
+      </li>
       <li>{{ recipe.title }}</li>
       <li>{{ recipe.description }}</li>
       <li>{{ recipe.author }}</li>
