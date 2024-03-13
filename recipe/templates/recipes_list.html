@@ -4,14 +4,17 @@
 {% block content %} 
 
     <h1>Recipes</h1>
-    <ul>
+    
       {% for recipe in recipes %}
+      <div class="container recipe-box">
+      <ul>
       <li>{{ recipe.title }}</li>
       <li>{{ recipe.description }}</li>
       <li>{{ recipe.author }}</li>
       <li>{{ recipe.created_on }}</li>      
-      {% endfor %}
-    </ul>
+      </ul>
+      </div>
+    {% endfor %}
 
     {% endblock %}
     

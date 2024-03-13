@@ -1,3 +1,11 @@
 body {
     background-color: rgb(23, 250, 144);
 }
+
+.recipe-box {
+    border: 1px solid black;
+}
+
+.recipe-box li {
+    text-decoration: none;
+}
