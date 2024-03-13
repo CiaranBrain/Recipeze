@@ -16,24 +16,27 @@
 }
 
 body {
-    background-color:var(--butterscotch);
+    background-color:#FFF8E8;
 }
 
 .recipe-box {
-    background-color: var(--coral);
+    background-color:#402E32;
+    height: 600px;
+    width: 525px;
     padding: 10px;
     margin: 10px;
-    border: 1px solid black;
+    border: 2px solid #DDBA73;
     box-shadow: var(--small-box-shadow);
 }
 
-.recipe-box li {
-    text-decoration: none;
+.recipe-box ul li {
+    list-style: none;
+    color: #FFF8E8;
 }
 /* navbar */
 
 .navbar {
-    background-color: var(--coral);
+    background-color: transparent;
 }
 
 
@@ -41,14 +44,28 @@ body {
 
 
 .footer {
-    background-color: var(--butterscotch);
+    /* background-color: #A48E65; */
+    background-color: #402E32;
 
+}
+
+.footer a {
+    font-size: 3rem;
+    color: #DDBA73;
 }
 
 
 /* placeholder image */
 
 .scale {
-    height: 100px;
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+}
+
+/* signup form */
+
+.form-text ul li {
+    list-style: none;
 }

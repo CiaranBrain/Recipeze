@@ -10,11 +10,12 @@
       <ul>
         <li><img src="{% static 'images/test.jpg' %}" class="scale" alt="placeholder">
       </li>
-      <li>{{ recipe.title }}</li>
+      <li><h2>{{ recipe.title }}</h2></li>
       <li>{{ recipe.description }}</li>
       <li>{{ recipe.author }}</li>
       <li>{{ recipe.created_on }}</li>      
       </ul>
+      <a href="{% url 'item' %}">see recipe</a>
       </div>
     {% endfor %}
 
