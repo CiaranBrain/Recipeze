@@ -1,11 +1,46 @@
+:root {
+
+    /* Colours */
+    --platinum: #e1e6e1;
+    --tomato: #f85a3e;
+    --orange: #ff7733;
+    --cinnabar: #e15634;
+    --vermillion: #e63b2e;
+    --coral: #fc7a57;
+    --butterscotch: #df9a57;
+    --white: #fff;
+    
+    /* Utils */
+    --small-box-shadow: 1px -1px 7px 0 #00000061;
+    --border: 1px solid #00000030;
+}
+
 body {
-    background-color: rgb(23, 250, 144);
+    background-color:var(--butterscotch);
 }
 
 .recipe-box {
+    background-color: var(--coral);
+    padding: 10px;
+    margin: 10px;
     border: 1px solid black;
+    box-shadow: var(--small-box-shadow);
 }
 
 .recipe-box li {
     text-decoration: none;
+}
+/* navbar */
+
+.navbar {
+    background-color: var(--coral);
+}
+
+
+/* Footer styling */
+
+
+.footer {
+    background-color: var(--butterscotch);
+
 }
