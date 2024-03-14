@@ -15,7 +15,7 @@
       <li>{{ recipe.author }}</li>
       <li>{{ recipe.created_on }}</li>      
       </ul>
-      <a href="{% url 'item' %}">see recipe</a>
+      <a href="{% url 'recipe_detail' recipe.id %}">see recipe</a>
       </div>
     {% endfor %}
 

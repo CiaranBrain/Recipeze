@@ -19,7 +19,6 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     recipe_image = CloudinaryField('image', default='placeholder')
-    # slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
         return self.title
