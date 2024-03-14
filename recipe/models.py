@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
+STATUS = ((0, "Draft"), (1, "Published"))
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -19,6 +20,7 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     recipe_image = CloudinaryField('image', default='placeholder')
+    posted = models.IntegerField(choices=STATUS, default=0)
 
     def __str__(self):
         return self.title
