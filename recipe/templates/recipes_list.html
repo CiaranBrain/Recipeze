@@ -1,25 +1,42 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block title %}Recipes {% endblock %}
 {% block content %} 
-
-    <h1>Recipes</h1>
+{% for recipe in recipes %}
     
-      {% for recipe in recipes %}
-      <div class="container recipe-box">
-      <ul>
-        <li><img src="{% static 'images/test.jpg' %}" class="scale" alt="placeholder">
-      </li>
-      <li><h2>{{ recipe.title }}</h2></li>
+<div class="container">
+  <h1>Recipes</h1>
+  <div class="container recipe-box">
+      {% if "placeholder" in recipe.recipe_image.url %}
+      <img class="card-img-top" src="{% static 'images/test.jpg' %}"
+        alt="placeholder">
+      {% else %}
+      <img class="card-img-top" src=" {{ recipe.recipes.url }}"
+        alt="{{ recipe.title }}">
+      {% endif %}
+    </div>
+    <div>
+  <li><h2>{{ recipe.title }}</h2></li>
       <li>{{ recipe.description }}</li>
       <li>{{ recipe.author }}</li>
       <li>{{ recipe.created_on }}</li>      
       </ul>
-      <a href="{% url 'recipe_detail' recipe.id %}">see recipe</a>
-      </div>
-    {% endfor %}
+      <a class="btn btn-primary" href="{% url 'recipe_detail' recipe.id %}">see recipe</a>
+</div>
+
+{% endfor %}
 
     {% endblock %}
+          
     
-  </body>
-</html>
+
+
+
+
+
+
+      
+  
+    
+
