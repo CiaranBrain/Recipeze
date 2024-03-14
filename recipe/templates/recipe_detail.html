@@ -1,37 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block title %}Detail {% endblock %}
 
 {% block content %}
 
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ recipe.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/test.jpg' %}" class="scale" alt="placeholder">
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text">
-                    {{ recipe.description | safe }}
-                </p>
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{ recipe.title }}</h2>
+                    <p class="card-text">{{ recipe.description }}</p>
+                    <hr>
+                    <h4>Ingredients:</h4>
+                    <ul>
+                            <li>{{ recipe.ingredient }}</li>
+                    </ul>
+                    <hr>
+                    <h4>Instructions:</h4>
+                    <ol>
+                            <li>{{ recipe.instruction }}</li>
+                    </ol>
+                    <hr>
+                    <p><strong>Category:</strong> {{ recipe.category }}</p>
+                    <p><strong>Author:</strong> {{ recipe.author }}</p>
+                    <p><strong>Created On:</strong> {{ recipe.created_on }}</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 {% endblock content %}
