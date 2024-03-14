@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django import forms
 
 # Create your models here.
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -25,3 +26,7 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+class RecipeForm(forms.ModelForm):
+    class Meta:
+        model = Recipe
+        fields = ['title', 'description', 'ingredients', 'instructions', 'category', 'recipe_image', 'posted']
