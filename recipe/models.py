@@ -30,3 +30,19 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ['title', 'description', 'ingredients', 'instructions', 'category', 'recipe_image', 'posted']
+
+
+class Comment(models.Model):
+    """
+    Stores a single comment entry 
+    """
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  
+    comment = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Comment {self.comment} by {self.author}"

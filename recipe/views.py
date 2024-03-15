@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Recipe
+from .models import Recipe, Comment
 from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
 
@@ -46,6 +46,15 @@ class RecipeListView(ListView):
 #     recipe = get_object_or_404(Recipe, pk=recipe_id)
 #     return render(request, 'recipe_detail.html', {'recipe': recipe})
 
+@login_required
+def add_comment(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment')
+        Comment.objects.create(author=request.user, recipe=recipe, comment = comment_text)
+        return redirect('recipe_detail', recipe_id=recipe.id)
+    return render(request, 'add_comment.html')
+
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'recipe_detail.html'
@@ -54,6 +63,11 @@ class RecipeDetailView(DetailView):
     def get_object(self):
         recipe_id = self.kwargs.get("recipe_id")
         return get_object_or_404(Recipe, pk=recipe_id)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = Comment.objects.filter(recipe=self.get_object()).order_by('-created_on')
+        return context
 
 
 

@@ -38,6 +38,24 @@
         </div>
       </div>
     </div>
+    <h2>Comments</h2>
+{% for comment in comments %}
+    <div>
+        <h3>{{ comment.user.username }}</h3>
+        <p>{{ comment.comment }}</p>
+        <p><small>{{ comment.created_at }}</small></p>
+    </div>
+{% empty %}
+    <p>No comments yet.</p>
+{% endfor %}
+
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'add_comment' recipe.id %}">
+        {% csrf_token %}
+        <textarea name="comment"></textarea>
+        <input type="submit" value="Submit Comment">
+    </form>
+{% endif %}
   </div>
 
 <!-- <div class="container">
