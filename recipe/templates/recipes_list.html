@@ -3,40 +3,42 @@
 {% load crispy_forms_tags %}
 {% block title %}Recipes {% endblock %}
 {% block content %} 
-{% for recipe in recipes %}
-    
 <div class="container">
-  <h1>Recipes</h1>
-  <div class="container recipe-box">
-      {% if "placeholder" in recipe.recipe_image.url %}
-      <img class="card-img-top" src="{% static 'images/test.jpg' %}"
-        alt="placeholder">
-      {% else %}
-      <img class="card-img-top" src="{{ recipe.recipe_image.url }}"
-        alt="{{ recipe.title }}">
-      {% endif %}
+  <h1 class="mb-4">Recipes</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for recipe in recipes %}
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+        {% if "placeholder" in recipe.recipe_image.url %}
+        <img class="card-img-top" src="{% static 'images/test.jpg' %}"
+          alt="placeholder">
+        {% else %}
+        <img class="card-img-top" src="{{ recipe.recipe_image.url }}"
+          alt="{{ recipe.title }}">
+        {% endif %}  
+          <h5 class="card-title">{{ recipe.title }}</h5>
+          <p class="card-text">{{ recipe.description }}</p>
+          <p class="card-text">Author: {{ recipe.author }}</p>
+          <p class="card-text">Created on: {{ recipe.created_on }}</p>
+          <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary">See Recipe</a>
+        </div>
+      </div>
     </div>
-    <div>
-  <li><h2>{{ recipe.title }}</h2></li>
-      <li>{{ recipe.description }}</li>
-      <li>{{ recipe.author }}</li>
-      <li>{{ recipe.created_on }}</li>      
-      </ul>
-      <a class="btn btn-primary" href="{% url 'recipe_detail' recipe.id %}">see recipe</a>
+    {% endfor %}
+  </div>
+  <!-- Pagination links -->
+  {% if is_paginated %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center mt-4">
+      {% if page_obj.has_previous %}
+      <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Prev</a></li>
+      {% endif %}
+      {% if page_obj.has_next %}
+      <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
 </div>
-
-{% endfor %}
-
-    {% endblock %}
-          
-    
-
-
-
-
-
-
-      
-  
-    
-
+{% endblock %}

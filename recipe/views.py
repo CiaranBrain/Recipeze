@@ -4,6 +4,8 @@ from .models import Recipe
 from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic import ListView
+
 # Create your views here.
 
 # def recipe_list(request):
@@ -25,10 +27,20 @@ from django.contrib.auth.decorators import login_required
 
     # new
 
-def recipe_list(request):
-    recipes = Recipe.objects.filter(posted=1).order_by('created_on')
-    context = {'recipes': recipes}
-    return render(request, 'recipes_list.html', context)
+class RecipeListView(ListView):
+    model = Recipe
+    template_name = 'recipes_list.html'
+    context_object_name = 'recipes'
+    paginate_by = 6
+
+    def get_queryset(self):
+        return Recipe.objects.filter(posted=1).order_by('created_on')
+
+
+# def recipe_list(request):
+#     recipes = Recipe.objects.filter(posted=1).order_by('created_on')
+#     context = {'recipes': recipes}
+#     return render(request, 'recipes_list.html', context)
 
 def recipe_detail(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
@@ -55,7 +67,7 @@ def edit_recipe(request, recipe_id):
         form = RecipeForm(request.POST, instance=recipe)
         if form.is_valid():
             form.save()
-            return redirect('recipe_detail', recipe_id=recipe.id)
+            return redirect('recipe_detail', recipe_id=recipe.id)# Redirect to the recipe detail page after successfully editing a recipe
     else:
         form = RecipeForm(instance=recipe)
     return render(request, 'edit_recipe.html', {'form': form})
