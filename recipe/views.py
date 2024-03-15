@@ -31,7 +31,7 @@ class RecipeListView(ListView):
     model = Recipe
     template_name = 'recipes_list.html'
     context_object_name = 'recipes'
-    paginate_by = 6
+    paginate_by = 9
 
     def get_queryset(self):
         return Recipe.objects.filter(posted=1).order_by('created_on')

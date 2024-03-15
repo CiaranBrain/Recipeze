@@ -16,6 +16,7 @@
 }
 
 body {
+    min-height: 100vh;
     background-color:#FFF8E8;
 }
 
@@ -46,7 +47,10 @@ body {
 .footer {
     /* background-color: #A48E65; */
     background-color: #402E32;
-
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0; /* Adjust padding as needed */
 }
 
 .footer a {
