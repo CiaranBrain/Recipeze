@@ -1,5 +1,6 @@
 from django import forms
 from .models import Recipe
+from cloudinary.models import CloudinaryField
 
 class RecipeForm(forms.ModelForm):
     class Meta:
@@ -9,4 +10,5 @@ class RecipeForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'rows': 4}),
             'ingredients': forms.Textarea(attrs={'rows': 6}),
             'instructions': forms.Textarea(attrs={'rows': 10}),
+            
         }

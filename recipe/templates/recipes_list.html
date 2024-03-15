@@ -12,7 +12,7 @@
       <img class="card-img-top" src="{% static 'images/test.jpg' %}"
         alt="placeholder">
       {% else %}
-      <img class="card-img-top" src=" {{ recipe.recipes.url }}"
+      <img class="card-img-top" src="{{ recipe.recipe_image.url }}"
         alt="{{ recipe.title }}">
       {% endif %}
     </div>
