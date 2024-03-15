@@ -4,7 +4,7 @@ from .models import Recipe
 from .forms import RecipeForm
 from django.contrib.auth.decorators import login_required
 
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
@@ -42,9 +42,21 @@ class RecipeListView(ListView):
 #     context = {'recipes': recipes}
 #     return render(request, 'recipes_list.html', context)
 
-def recipe_detail(request, recipe_id):
-    recipe = get_object_or_404(Recipe, pk=recipe_id)
-    return render(request, 'recipe_detail.html', {'recipe': recipe})
+# def recipe_detail(request, recipe_id):
+#     recipe = get_object_or_404(Recipe, pk=recipe_id)
+#     return render(request, 'recipe_detail.html', {'recipe': recipe})
+
+class RecipeDetailView(DetailView):
+    model = Recipe
+    template_name = 'recipe_detail.html'
+    context_object_name = 'recipe'
+
+    def get_object(self):
+        recipe_id = self.kwargs.get("recipe_id")
+        return get_object_or_404(Recipe, pk=recipe_id)
+
+
+
 
 @login_required
 def add_recipe(request):

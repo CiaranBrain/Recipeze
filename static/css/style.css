@@ -47,6 +47,7 @@ body {
 .footer {
     /* background-color: #A48E65; */
     background-color: #402E32;
+    margin-top: auto;
     position: sticky;
     bottom: 0;
     width: 100%;

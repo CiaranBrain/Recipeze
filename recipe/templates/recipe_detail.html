@@ -24,6 +24,15 @@
             <p class="card-text">{{ recipe.ingredients }}</p>
             <h3>Instructions:</h3>
             <p class="card-text">{{ recipe.instructions }}</p>
+            {% if user == recipe.author %}
+                    <form action="{% url 'edit_recipe' recipe.id %}" method="get" style="display:inline;">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                    <form action="{% url 'delete_recipe' recipe.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    {% endif %}
             <a href="{% url 'recipe-list' %}" class="btn btn-primary">Back to Recipe List</a>
           </div>
         </div>
