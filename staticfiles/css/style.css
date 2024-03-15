@@ -1,3 +1,73 @@
-body {
-    background-color: rgb(23, 250, 144);
+:root {
+
+    /* Colours */
+    --platinum: #e1e6e1;
+    --tomato: #f85a3e;
+    --orange: #ff7733;
+    --cinnabar: #e15634;
+    --vermillion: #e63b2e;
+    --coral: #fc7a57;
+    --butterscotch: #df9a57;
+    --white: #fff;
+    
+    /* Utils */
+    --small-box-shadow: 1px -1px 7px 0 #00000061;
+    --border: 1px solid #00000030;
 }
+
+body {
+    background-color:#FFF8E8;
+}
+
+.recipe-box {
+    background-color:#402E32;
+    height: 600px;
+    width: 525px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #DDBA73;
+    box-shadow: var(--small-box-shadow);
+}
+
+.recipe-box ul li {
+    list-style: none;
+    color: #FFF8E8;
+}
+/* navbar */
+
+.navbar {
+    background-color: transparent;
+}
+
+
+/* Footer styling */
+
+
+.footer {
+    /* background-color: #A48E65; */
+    background-color: #402E32;
+
+}
+
+.footer a {
+    font-size: 3rem;
+    color: #DDBA73;
+}
+
+
+/* placeholder image */
+
+.scale {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    width: 200px;
+}
+
+/* signup form */
+
+.form-text ul li {
+    list-style: none;
+}
+
+/* tets */
