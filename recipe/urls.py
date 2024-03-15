@@ -4,8 +4,6 @@ from .views import add_recipe, edit_recipe, delete_recipe, RecipeListView, Recip
 
 urlpatterns = [
     path('', RecipeListView.as_view(), name='recipe-list'),
-    # path('', views.recipe_list, name='recipes'),
-    # path('<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
     path('recipe/<int:recipe_id>/', RecipeDetailView.as_view(), name='recipe_detail'),
     path('add_recipe/', add_recipe, name='add_recipe'),
     path('recipes/<int:recipe_id>/edit/', views.edit_recipe, name='edit_recipe'),

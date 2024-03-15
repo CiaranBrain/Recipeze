@@ -1,5 +1,5 @@
 from django import forms
-from .models import Recipe
+from .models import Recipe, Comment
 from cloudinary.models import CloudinaryField
 
 class RecipeForm(forms.ModelForm):
@@ -12,3 +12,8 @@ class RecipeForm(forms.ModelForm):
             'instructions': forms.Textarea(attrs={'rows': 10}),
             
         }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('comment',)
