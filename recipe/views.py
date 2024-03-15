@@ -55,7 +55,7 @@ def add_recipe(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
-            return redirect('recipes')  # Redirect to the recipe list page after successfully adding a recipe
+            return redirect('recipe-list')  # Redirect to the recipe list page after successfully adding a recipe
     else:
         form = RecipeForm()
     return render(request, 'add_recipe.html', {'form': form})
