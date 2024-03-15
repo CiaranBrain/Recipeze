@@ -55,6 +55,25 @@ def add_comment(request, recipe_id):
         return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'add_comment.html')
 
+@login_required
+def edit_comment(request, recipe_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id, author=request.user)
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment')
+        if comment_text:
+            comment.comment = comment_text
+            comment.save()
+            return redirect('recipe_detail', recipe_id=recipe.id)
+    return render(request, 'edit_comment.html', {'comment': comment})
+
+@login_required
+def delete_comment(request, recipe_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id, author=request.user)
+    if request.method == 'POST':
+        comment.delete()
+        return redirect('recipe_detail', recipe_id=recipe.id)
+    return render(request, 'delete_comment.html', {'comment': comment})
+
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'recipe_detail.html'

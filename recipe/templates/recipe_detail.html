@@ -44,6 +44,10 @@
         <h3>{{ comment.user.username }}</h3>
         <p>{{ comment.comment }}</p>
         <p><small>{{ comment.created_at }}</small></p>
+        {% if comment.author == user %}
+            <a href="{% url 'edit_comment' recipe.id comment.id %}">Edit</a>
+            <a href="{% url 'delete_comment' recipe.id comment.id %}">Delete</a>
+        {% endif %}
     </div>
 {% empty %}
     <p>No comments yet.</p>
@@ -56,6 +60,8 @@
         <input type="submit" value="Submit Comment">
     </form>
 {% endif %}
+
+
   </div>
 
 <!-- <div class="container">
