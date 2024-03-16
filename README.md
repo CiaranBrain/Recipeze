@@ -30,6 +30,6 @@ Recipeze is fortified with unit tests to guarantee the reliability and functiona
 
 ## URLs
 
-github - 
-heroku - 
+- github - https://github.com/CiaranBrain/Recipeze
+ - heroku - https://recipeze-da8be575c94f.herokuapp.com
 
