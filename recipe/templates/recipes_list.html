@@ -5,6 +5,7 @@
 {% block content %} 
 
 
+
 <div class="container">
   <h1 class="mb-4">Recipes</h1>
   <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -19,8 +20,8 @@
           alt="{{ recipe.title }}">
         {% endif %} 
         <div class="card-body">
-          <h4 class="card-title">{{ recipe.title }}</h4>
-          <p class="card-text">{{ recipe.description }}</p>
+          <h4 class="card-title">{{ recipe.title|safe }}</h4>
+          <p class="card-text">{{ recipe.description|safe }}</p>
           <p class="card-text">Author: {{ recipe.author }}</p>
           <p class="card-text">Created on: {{ recipe.created_on }}</p>
           <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary">See Recipe</a>
@@ -46,3 +47,5 @@
   {% endif %}
 </div>
 {% endblock %}
+
+{{ description|safe }}

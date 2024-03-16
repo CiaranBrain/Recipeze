@@ -1,15 +1,20 @@
 from django.contrib import admin
-from .models import Category, Recipe
+from django_summernote.admin import SummernoteModelAdmin
+from .models import Category, Recipe, Comment
+
 
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
-class RecipeAdmin(admin.ModelAdmin):
+@admin.register(Recipe)
+class RecipeAdmin(SummernoteModelAdmin):
     list_display = ('title', 'description',
-     'ingredients', 'author', 'created_on',
+     'ingredients', 'instructions', 'author', 'created_on',
       'category', 'recipe_image')
+    summernote_fields = 'description', 'ingredients', 'instructions'
+    list_filter = ('posted',)
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Comment,)

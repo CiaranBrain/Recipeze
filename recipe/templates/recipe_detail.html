@@ -16,14 +16,14 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h2 class="card-title">{{ recipe.title }}</h2>
-            <p class="card-text">{{ recipe.description }}</p>
+            <h2 class="card-title">{{ recipe.title|safe }}</h2>
+            <p class="card-text">{{ recipe.description|safe }}</p>
             <p class="card-text"><small class="text-muted">Author: {{ recipe.author }}</small></p>
             <p class="card-text"><small class="text-muted">Created on: {{ recipe.created_on }}</small></p>
             <h3>Ingredients:</h3>
-            <p class="card-text">{{ recipe.ingredients }}</p>
+            <p class="card-text">{{ recipe.ingredients|safe }}</p>
             <h3>Instructions:</h3>
-            <p class="card-text">{{ recipe.instructions }}</p>
+            <p class="card-text">{{ recipe.instructions|safe }}</p>
             {% if user == recipe.author %}
                     <form action="{% url 'edit_recipe' recipe.id %}" method="get" style="display:inline;">
                         <button type="submit" class="btn btn-primary">Edit</button>
@@ -213,8 +213,10 @@
         </div>
     </div>
 </div> -->
+{{ form.description|safe }}
+{{ form|safe }}
 {% endblock content %}
-
+{{ form|safe }}
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
