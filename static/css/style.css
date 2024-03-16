@@ -15,27 +15,27 @@
     --border: 1px solid #00000030;
 }
 
-body {
-    min-height: 100vh;
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+  flex: 1 0 auto;
+  padding-bottom: 60px; 
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  padding-bottom: 30px;
     background-color:#FFF8E8;
 }
 
-.recipe-box {
-    background-color:#402E32;
-    height: 600px;
-    width: 525px;
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid #DDBA73;
-    box-shadow: var(--small-box-shadow);
-}
-
-.recipe-box ul li {
-    list-style: none;
-    color: #FFF8E8;
-}
 /* navbar */
-
 .navbar {
     background-color: transparent;
 }
@@ -43,30 +43,19 @@ body {
 
 /* Footer styling */
 
-
 .footer {
     /* background-color: #A48E65; */
     background-color: #402E32;
-    margin-top: auto;
-    position: sticky;
+    position: fixed;
     bottom: 0;
+    height: 100px;
     width: 100%;
-    padding: 20px 0; /* Adjust padding as needed */
+    padding: 20px 0;
 }
 
 .footer a {
-    font-size: 3rem;
+    font-size: 2rem;
     color: #DDBA73;
-}
-
-
-/* placeholder image */
-
-.scale {
-    display: flex;
-    justify-content: center;
-    height: 200px;
-    width: 200px;
 }
 
 /* signup form */
@@ -75,7 +64,7 @@ body {
     list-style: none;
 }
 
-/* tets */
+/* List View */
 
 .card {
     transition: transform 0.3s;
@@ -94,3 +83,24 @@ body {
     margin-top: 20px;
   }
 
+
+  /* home page  */
+
+  .jumbotron {
+    background-image: url("../images/recipe-background.jpg");
+    background-size: cover;
+    color: #fff;
+    padding: 100px 0;
+    margin-bottom: 0;
+  }
+
+  .btn-primary {
+      background-color: #ff7f50;
+      border-color: #ff7f50; 
+  }
+
+  .btn-primary:hover
+  .btn-primary:active {
+      background-color: #ff6347; 
+      border-color: #ff6347;
+  }

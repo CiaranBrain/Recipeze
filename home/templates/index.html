@@ -1,7 +1,32 @@
-{% extends 'base.html' %}
-{% block title %}Home{% endblock %}
+{% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
 {% block content %}
 
-<h1>home!!</h1>
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Recipeze</h1>
+    <p class="lead">
+      Explore our collection of mouthwatering recipes from around the world.
+    </p>
+    <a class="btn btn-primary btn-lg" href="{% url 'recipe-list' %}" role="button">Explore Recipes</a>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>About Us</h2>
+        <p>
+          Welcome to our recipe sharing hub! Discover a world of inspiration crafted by passionate cooks like you. Find, save, and
+          share delicious recipes that bring joy to your table. Join
+          our community and let's explore the art of cooking together! 
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h2>Contact Us</h2>
+        <p>Email: contact@recipeze.com</p>
+        <p>Phone: 123-456-7890</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
