@@ -47,3 +47,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.comment} by {self.author}"
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_image = CloudinaryField('image', default='static/images/nobodyc.jpg')
+    favourite_food = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.user.user_profile

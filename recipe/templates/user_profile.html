@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} User Profile {%endblock %} 
+
+{% block content %}
+
+<div class="container">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <h1>{{ user.username }}</h1>
+        <!-- <img src="{{ user.profile.profile_image.url }}" alt="profile-img"> -->
+        <p>{{ user.profile.favourite_food }}</p>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>

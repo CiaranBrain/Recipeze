@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
-from .models import Recipe, Comment
+from .models import Recipe, Comment, UserProfile
 from .forms import RecipeForm, CommentForm
 from django.contrib.auth.decorators import login_required
 
@@ -95,3 +95,12 @@ def delete_recipe(request, recipe_id):
         recipe.delete()
         return redirect('recipes')
     return render(request, 'delete_recipe.html', {'recipe': recipe})
+
+# UserProfile section
+class UserProfileView(DetailView):
+    model = UserProfile
+    template_name = 'user_profile.html'
+    context_object_name = 'user_object'
+
+    def get_object(self, queryset=None):
+        return self.request.user
