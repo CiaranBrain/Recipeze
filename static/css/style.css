@@ -104,3 +104,39 @@ html, body {
       background-color: #ff6347; 
       border-color: #ff6347;
   }
+
+  /* user profile page */
+
+  .profile-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+  }
+  .profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .profile-info {
+    margin-bottom: 20px;
+  }
+  .profile-info p {
+    margin-bottom: 5px;
+  }
+  .btn-edit-profile {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+  }
+  .btn-edit-profile:hover {
+    background-color: #0056b3;
+  }

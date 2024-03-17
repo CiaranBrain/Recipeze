@@ -93,7 +93,7 @@ def delete_recipe(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         recipe.delete()
-        return redirect('recipes')
+        return redirect('recipe-list')
     return render(request, 'delete_recipe.html', {'recipe': recipe})
 
 # UserProfile section
