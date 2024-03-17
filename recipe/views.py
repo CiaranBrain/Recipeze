@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import Recipe, Comment, UserProfile
-from .forms import RecipeForm, CommentForm
+from .forms import RecipeForm, CommentForm, UserProfileForm, ProfileForm
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 
 from django.views.generic import ListView, DetailView
 
@@ -97,10 +98,13 @@ def delete_recipe(request, recipe_id):
     return render(request, 'delete_recipe.html', {'recipe': recipe})
 
 # UserProfile section
-class UserProfileView(DetailView):
-    model = UserProfile
-    template_name = 'user_profile.html'
-    context_object_name = 'user_object'
-
-    def get_object(self, queryset=None):
-        return self.request.user
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        profile_form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        if profile_form.is_valid():
+            profile_form.save()
+            return redirect('home')  # Change 'home' to your desired URL name
+    else:
+        profile_form = UserProfileForm(instance=request.user.userprofile)
+    return render(request, 'user_profile.html', {'profile_form': profile_form})
