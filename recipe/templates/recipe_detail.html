@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <h2>Comments</h2>
+    <!-- <h2>Comments</h2>
     {% for comment in comments %}
     <div id="comment-{{ comment.id }}">
         <h3>{{ comment.author.username }}</h3>
@@ -56,7 +56,31 @@
     {% csrf_token %}
     <textarea id="id_body" name="comment"></textarea>
     <button id="submitButton" type="submit">Submit Comment</button>
-</form>
+</form> -->
+
+<div class="container mt-5">
+  <h2>Comments</h2>
+  {% for comment in comments %}
+  <div class="card mb-3" id="comment-{{ comment.id }}">
+      <div class="card-body">
+          <h5 class="card-title">{{ comment.author.username }}</h5>
+          <p class="card-text">{{ comment.comment }}</p>
+          {% if comment.author == user %}
+              <button class="btn btn-sm btn-primary btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+              <button class="btn btn-sm btn-danger btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+          {% endif %}
+      </div>
+  </div>
+  {% endfor %}
+  <form id="commentForm" method="post" action="{% url 'add_comment' recipe.id %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <textarea class="form-control" id="id_body" name="comment" rows="3" placeholder="Write your comment here"></textarea>
+        <button id="submitButton" type="submit" class="btn btn-primary">Submit Comment</button>
+      </div>
+      
+  </form>
+</div>
 
 <div id="deleteModal" class="modal">
     <div class="modal-dialog">
@@ -76,150 +100,8 @@
     </div>
 </div>
 
-<!-- {% for comment in comments %}
-    <div>
-        <h3>{{ comment.user.username }}</h3>
-        <p>{{ comment.comment }}</p>
-        <p><small>{{ comment.created_at }}</small></p>
-        {% if comment.author == user %}
-            <a href="{% url 'edit_comment' recipe.id comment.id %}">Edit</a>
-            <a href="{% url 'delete_comment' recipe.id comment.id %}">Delete</a>
-        {% endif %}
-    </div>
-{% empty %}
-    <p>No comments yet.</p>
-{% endfor %}
 
-{% if user.is_authenticated %}
-    <form method="post" action="{% url 'add_comment' recipe.id %}">
-        {% csrf_token %}
-        <textarea name="comment"></textarea>
-        <input type="submit" value="Submit Comment">
-    </form>
-{% endif %}
-
-
-  </div> -->
- <!-- Displaying count of comments -->
-<!-- <div class="row">
-    <div class="col-12">
-      <strong class="text-secondary">
-        <i class="far fa-comments"></i> {{ comment_count }}
-      </strong>
-    </div>
-    <div class="col-12">
-      <hr>
-    </div>
-  </div> -->
-  <!-- Displaying Comments -->
-  <!-- <div class="row">
-    <div class="col-md-8 card mb-4 mt-3">
-      <h3>Comments:</h3>
-      <div class="card-body"> -->
-        <!-- We want a for loop inside the empty control tags
-            to iterate through each comment in comments -->
-        <!-- {% for comment in comments %}
-        <div>
-          <p class="font-weight-bold">
-            {{ comment.author }}
-            <span class="font-weight-normal"> {{ comment.created_on }} </span>
-            wrote:
-          </p>
-          <div id="comment{{ comment.id }}">{{ comment.body | linebreaks }}</div>
-          {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-          {% endif %}
-        </div> -->
-        <!-- Our for loop ends here -->
-        <!-- {% endfor %}
-      </div>
-    </div> -->
-    <!-- Creating New Comments -->
-    <!-- <div class="col-md-4 card mb-4 mt-3">
-      <div class="card-body">
-        {% if user.is_authenticated %}
-        <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post" style="margin-top: 1.3em">
-          {{ comment_form | crispy }} {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">
-            Submit
-          </button>
-        </form>
-        {% else %}
-        <p>Log in to leave a comment</p>
-        {% endif %}
-      </div>
-    </div>
-  </div> -->
-  
-  <!-- Delete confirmation modal -->
-  <!-- <div class="modal fade" id="deleteModal" tabindex="-1"
-    aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"
-            id="deleteModalLabel">Delete comment?</h5>
-          <button type="button" class="btn-close"
-            data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete your comment?
-          This action cannot be undone.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary"
-            data-bs-dismiss="modal">Close</button>
-          <a id="deleteConfirm" href="#" class="btn
-            btn-danger">Delete</a>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <div class="card">
-                <div class="card-body">
-                    <img src="{{ object.image.url }}" alt="placeholder">
-                    <h2 class="card-title">{{ recipe.title }}</h2>
-                    <p class="card-text">{{ recipe.description }}</p>
-                    <hr>
-                    <h4>Ingredients:</h4>
-                    <ul>
-                            <li>{{ recipe.ingredients }}</li>
-                    </ul>
-                    <hr>
-                    <h4>Instructions:</h4>
-                    <ol>
-                            <li>{{ recipe.instructions }}</li>
-                    </ol>
-                    <hr>
-                    <p><strong>Category:</strong> {{ recipe.category }}</p>
-                    <p><strong>Author:</strong> {{ recipe.author }}</p>
-                    <p><strong>Created On:</strong> {{ recipe.created_on }}</p>
-                    {% if user == recipe.author %}
-                    <form action="{% url 'edit_recipe' recipe.id %}" method="get" style="display:inline;">
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </form>
-                    <form action="{% url 'delete_recipe' recipe.id %}" method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-{{ form.description|safe }}
-{{ form|safe }}
 {% endblock content %}
-{{ form|safe }}
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 {% endblock %}
