@@ -42,7 +42,12 @@ html, body {
   padding-bottom: 30px;
   background-color:#FFF8E8;
 }
+/* messages */
 
+.alert {
+  background-color: rgba(230, 147, 24, 0.5);
+
+}
 /* navbar */
 .navbar-brand {
   font-family: "Bilbo Swash Caps", cursive;
@@ -135,7 +140,7 @@ html, body {
     background-size: cover;
     color: #fff;
     padding: 100px 0;
-    margin: 20px;
+  
   }
 
   .jumbotron .welcome-text {
