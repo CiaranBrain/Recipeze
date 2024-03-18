@@ -7,7 +7,12 @@
     <p class="lead">
       Explore our collection of mouthwatering recipes from around the world.
     </p>
-    <a class="btn btn-primary btn-lg" href="{% url 'recipe-list' %}" role="button">Explore Recipes</a>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary btn-lg" href="{% url 'recipe-list' %}" role="button">Explore Recipes!</a>
+      {% else %}
+      <a class="btn btn-primary btn-lg" href="{% url 'account_signup' %}" role="button">Sign Up!</a>
+      {% endif %} 
+    
   </div>
 
   <div class="container">
