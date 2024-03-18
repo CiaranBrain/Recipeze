@@ -4,6 +4,7 @@ from .models import Recipe, Comment
 from .forms import RecipeForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
+from django.contrib import messages
 
 # Recipe List View for a list view in html
 class RecipeListView(ListView):
@@ -22,8 +23,13 @@ def add_comment(request, recipe_id):
     if request.method == 'POST':
         comment_text = request.POST.get('comment')
         Comment.objects.create(author=request.user, recipe=recipe, comment = comment_text)
+        messages.add_message(
+            request, messages.SUCCESS,
+            'Comment submitted'
+        )
         return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'add_comment.html')
+    
 
 @login_required
 def edit_comment(request, recipe_id, comment_id):
@@ -68,6 +74,10 @@ def add_recipe(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Recipe Posted'
+            )
             return redirect('recipe-list')
     else:
         form = RecipeForm()
@@ -80,6 +90,10 @@ def edit_recipe(request, recipe_id):
         form = RecipeForm(request.POST, instance=recipe)
         if form.is_valid():
             form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Recipe Modified'
+            )
             return redirect('recipe_detail', recipe_id=recipe.id)
     else:
         form = RecipeForm(instance=recipe)
@@ -90,6 +104,10 @@ def delete_recipe(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         recipe.delete()
+        messages.add_message(
+                request, messages.SUCCESS,
+                'Recipe Deleted'
+            )
         return redirect('recipe-list')
     return render(request, 'delete_recipe.html', {'recipe': recipe})
 
