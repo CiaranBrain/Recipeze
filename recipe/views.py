@@ -45,8 +45,13 @@ def edit_comment(request, recipe_id, comment_id):
 @login_required
 def delete_comment(request, recipe_id, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id, author=request.user)
+    recipe = get_object_or_404(Recipe, pk=recipe_id)  #needed this to redirect correctly 
     if request.method == 'POST':
         comment.delete()
+        messages.add_message(
+                request, messages.SUCCESS,
+                'Comment Deleted'
+            )
         return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'delete_comment.html', {'comment': comment})
 

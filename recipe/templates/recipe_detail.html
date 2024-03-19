@@ -9,7 +9,7 @@
       <div class="row g-0">
         <div class="col-md-4">
           {% if "placeholder" in recipe.recipe_image.url %}
-          <img src="{% static 'images/test.jpg' %}" class="img-fluid rounded-start" alt="placeholder">
+          <img src="{% static 'images/menu.jpg' %}" class="img-fluid rounded-start" alt="placeholder">
           {% else %}
           <img src="{{ recipe.recipe_image.url }}" class="img-fluid rounded-start" alt="{{ recipe.title }}">
           {% endif %}
@@ -41,33 +41,25 @@
         </div>
       </div>
     </div>
-    <!-- <h2>Comments</h2>
-    {% for comment in comments %}
-    <div id="comment-{{ comment.id }}">
-        <h3>{{ comment.author.username }}</h3>
-        <p id="comment-text-{{ comment.id }}">{{ comment.comment }}</p>
-        {% if comment.author == user %}
-            <button class="btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-            <button class="btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
-        {% endif %}
-    </div>
-{% endfor %}
-<form id="commentForm" method="post" action="{% url 'add_comment' recipe.id %}">
-    {% csrf_token %}
-    <textarea id="id_body" name="comment"></textarea>
-    <button id="submitButton" type="submit">Submit Comment</button>
-</form> -->
-
 <div class="container mt-5">
   <h2>Comments</h2>
   {% for comment in comments %}
   <div class="card mb-3" id="comment-{{ comment.id }}">
       <div class="card-body">
-          <h5 class="card-title">{{ comment.author.username }}</h5>
+          <h5 class="card-text">{{ comment.author.username }}</h5>
           <p class="card-text">{{ comment.comment }}</p>
+
           {% if comment.author == user %}
-              <button class="btn btn-sm btn-primary btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-              <button class="btn btn-sm btn-danger btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+              <!-- <button class="btn btn-sm btn-primary btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+              <button class="btn btn-sm btn-danger btn-delete" data-comment_id="{{ comment.id }}">Delete</button> -->
+              <form action="{% url 'edit_comment' recipe.id comment.id %}" method="get" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+            <form action="{% url 'delete_comment' recipe.id comment.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
           {% endif %}
       </div>
   </div>

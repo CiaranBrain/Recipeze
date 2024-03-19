@@ -13,7 +13,7 @@
     <div class="col">
       <div class="card h-100"> 
         {% if "placeholder" in recipe.recipe_image.url %}
-        <img class="card-img-top" src="{% static 'images/test.jpg' %}"
+        <img class="card-img-top" src="{% static 'images/menu.jpg' %}"
           alt="placeholder">
         {% else %}
         <img class="card-img-top" src="{{ recipe.recipe_image.url }}"

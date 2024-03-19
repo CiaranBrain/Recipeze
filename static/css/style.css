@@ -4,14 +4,8 @@
 :root {
 
     /* Colours */
-    --platinum: #e1e6e1;
-    --tomato: #f85a3e;
-    --orange: #ff7733;
-    --cinnabar: #e15634;
-    --vermillion: #e63b2e;
-    --coral: #fc7a57;
-    --butterscotch: #df9a57;
-    --white: #fff;
+    --orange: #ff7f50;
+    --purlpish: #402E32;
     
     /* Utils */
     --small-box-shadow: 1px -1px 7px 0 #00000061;
@@ -95,7 +89,7 @@ html, body {
 
 .footer {
     /* background-color: #A48E65; */
-    background-color: #402E32;
+    background-color: var(--orange);
     position: fixed;
     bottom: 0;
     height: 100px;
