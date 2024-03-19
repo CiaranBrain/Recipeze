@@ -6,6 +6,12 @@
     /* Colours */
     --orange: #ff7f50;
     --purlpish: #402E32;
+    --font: #374151;
+    --background: #FFBE79;
+    --almostwhite: #FFF8E8;
+    --newbackgroud: #EDE1D1;
+    --newfont: #6A704C;
+    --notsure: #412E27;
     
     /* Utils */
     --small-box-shadow: 1px -1px 7px 0 #00000061;
@@ -35,7 +41,7 @@ main {
 html, body {
   min-height: 100vh;
   padding-bottom: 30px;
-  background-color:#FFF8E8;
+  background-color: var(--newbackgroud);
 }
 /* messages */
 
@@ -49,10 +55,13 @@ html, body {
   font-weight: 400;
   font-style: normal;
   font-size: 5rem;
+  color: var(--newfont);
+  
 }
 
 .navbar {
   background-color: transparent;
+  color: var(--newfont);
 }
 
 .navbar-nav .nav-link {
@@ -89,7 +98,7 @@ html, body {
 
 .footer {
     /* background-color: #A48E65; */
-    background-color: var(--orange);
+    background-color: var(--notsure);
     position: fixed;
     bottom: 0;
     height: 100px;
@@ -186,8 +195,9 @@ html, body {
   /* add recipe html */
 
   .recipe-form {
-    border: 2px solid #f85a3e;
+    background-color: var(--newfont);
     border-radius: 2rem;
+    border: 2px solid var(--newfont);
     margin: 0 auto;
    
 }
