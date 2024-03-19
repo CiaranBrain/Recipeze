@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
 
+import cloudinary.uploader
+
 # Recipe List View for a list view in html
 class RecipeListView(ListView):
     model = Recipe

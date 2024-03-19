@@ -16,6 +16,9 @@ import dj_database_url
 if os.path.isfile("env.py"):
     import env
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -35,10 +38,8 @@ ALLOWED_HOSTS = [
     '.herokuapp.com',
     '.gitpod.io',
     '8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu108.gitpod.io',
-    '8000-ciaranbrain-recipeze-a4iodlbx2rn.ws-eu110.gitpod.io',
     '127.0.0.1',
  ]
-
 
 # Application definition
 
@@ -55,16 +56,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django_summernote',
-
     'cloudinary_storage',
     'cloudinary',
-
     'crispy_forms',
     'crispy_bootstrap5',
-
-    
-
-
     # apps 
     'recipe',
     'home',
@@ -74,6 +69,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,6 +131,13 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-ciaranbrain-recipeze-hhh7bunia85.ws-eu110.gitpod.io',
 ]
 
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET')
+)
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -174,10 +177,12 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 SUMMERNOTE_THEME = 'bs5'
 SUMMERNOTE_CONFIG = {
