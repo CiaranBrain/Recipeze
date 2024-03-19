@@ -189,10 +189,11 @@ html, body {
     border: 2px solid #f85a3e;
     border-radius: 2rem;
     margin: 0 auto;
-    background-image: url('../images/handrawn-barbecue-elements.jpg');
+   
 }
 
 
 .row {
   margin: 0;
 }
+

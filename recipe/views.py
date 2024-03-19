@@ -14,7 +14,7 @@ class RecipeListView(ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        return Recipe.objects.filter(posted=1).order_by('created_on')
+        return Recipe.objects.filter(posted=1).order_by('-created_on')
 
 # comment section
 @login_required
