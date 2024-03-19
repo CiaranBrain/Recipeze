@@ -30,11 +30,12 @@
 
 main {
   flex: 1 0 auto;
-  padding-bottom: 60px; 
+  padding-bottom: 40px; 
 }
 
 .container-fluid {
   padding: 0;
+  margin: 0;
 }
 
 html, body {
@@ -115,13 +116,13 @@ html, body {
 
 /* List View */
 
-.card {
+/* .card {
     transition: transform 0.3s;
   }
   
 .card:hover {
     transform: translateY(-5px);
-  }
+  } */
   
 .card-img-top {
     height: 200px;
@@ -166,6 +167,26 @@ html, body {
     font-weight: 400;
     font-style: normal;
     font-size: 3rem;
+    padding: 3rem;
+  }
+
+  .menu-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .menu-text {
+    text-align: center;
+  }
+  .menu-text p, span {
+    font-family: "Edu NSW ACT Foundation", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    color: #333; 
+
   }
 
   /* add recipe html */
@@ -174,7 +195,10 @@ html, body {
     border: 2px solid #f85a3e;
     border-radius: 2rem;
     margin: 0 auto;
-    background-color: #DDBA73;
+    background-image: url('../images/handrawn-barbecue-elements.jpg');
 }
 
 
+.row {
+  margin: 0;
+}
