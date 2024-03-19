@@ -34,11 +34,16 @@ def add_comment(request, recipe_id):
 @login_required
 def edit_comment(request, recipe_id, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id, author=request.user)
+    recipe = get_object_or_404(Recipe, pk=recipe_id)  #needed this to redirect correctly
     if request.method == 'POST':
         comment_text = request.POST.get('comment')
         if comment_text:
             comment.comment = comment_text
             comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment Modified'
+            )
             return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'edit_comment.html', {'comment': comment})
 
