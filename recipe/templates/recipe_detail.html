@@ -46,8 +46,9 @@
   {% for comment in comments %}
   <div class="card mb-3" id="comment-{{ comment.id }}">
       <div class="card-body">
-          <h5 class="card-text">{{ comment.author.username }}</h5>
+          <h5 class="card-title">{{ comment.author.username }}</h5>
           <p class="card-text">{{ comment.comment }}</p>
+          <p class="text-muted">Date Posted: {{ comment.created_on }}</p>
 
           {% if comment.author == user %}
               <!-- <button class="btn btn-sm btn-primary btn-edit" data-comment_id="{{ comment.id }}">Edit</button>

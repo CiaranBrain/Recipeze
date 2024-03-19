@@ -24,7 +24,7 @@
           <p class="card-text"><strong>Description:</strong>{{ recipe.description|safe }}</p>
           <p class="card-text"><strong>Category:</strong> {{ recipe.category|safe }}</p>
           <p class="card-text"><strong>Author:</strong> {{ recipe.author }}</p>
-          <p class="card-text large-text"><strong>Created On:</strong> {{ recipe.created_on }}</p>
+          <p class="card-text text-muted"><strong>Created On:</strong> {{ recipe.created_on }}</p>
           <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary">See Recipe</a>
         </div>
       </div>
