@@ -13,6 +13,7 @@
       <h2 class="mb-4 text-center">Add Recipe</h2>
       <div class="form-group">
           {{ form|crispy }}
+          {{ recipe|safe }}
       </div>
       <button class="btn btn-primary btn-block mb-2 " type="submit">Submit</button>
   </form>

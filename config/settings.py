@@ -180,10 +180,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-SUMMERNOTE_THEME = 'bs5'
-
-SUMMERNOTE_CONFIG = {
-    # Using SummernoteWidget - iframe mode, default
-    'iframe': True,
-
-}
