@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Roboto&display=swap');
+
+/* main defaults */
 :root {
 
     /* Colours */
-    --platinum: #e1e6e1;
-    --tomato: #f85a3e;
-    --orange: #ff7733;
-    --cinnabar: #e15634;
-    --vermillion: #e63b2e;
-    --coral: #fc7a57;
-    --butterscotch: #df9a57;
-    --white: #fff;
+    --orange: #ff7f50;
+    --purlpish: #402E32;
+    --font: #374151;
+    --background: #FFBE79;
+    --almostwhite: #FFF8E8;
+    --newbackgroud: #EDE1D1;
+    --newfont: #6A704C;
+    --notsure: #412E27;
     
     /* Utils */
     --small-box-shadow: 1px -1px 7px 0 #00000061;
@@ -18,26 +21,77 @@
 * {
   margin: 0px;
   padding: 0px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--newfont);
+
 }
 
 main {
   flex: 1 0 auto;
-  padding-bottom: 60px; 
+  padding-bottom: 40px; 
 }
 
 .container-fluid {
   padding: 0;
+  margin: 0;
 }
 
 html, body {
   min-height: 100vh;
   padding-bottom: 30px;
-    background-color:#FFF8E8;
+  background-color: var(--newbackgroud);
+}
+/* messages */
+
+.alert {
+  background-color: rgba(230, 147, 24, 0.5);
+
+}
+/* navbar */
+.navbar-brand {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
+  color: var(--font);
+  
 }
 
-/* navbar */
 .navbar {
-    background-color: transparent;
+  background-color: transparent;
+  color: var(--font);
+}
+
+.navbar-nav .nav-link {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #333; 
+  position: relative; 
+}
+
+.navbar-nav .nav-link::after {
+  content: ''; 
+  display: block; 
+  width: 0; 
+  height: 2px; 
+  background-color: #ff7f50;
+  position: absolute; 
+  bottom: -2px; 
+  left: 0; 
+  transition: width 0.3s ease; 
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%; 
+}
+
+.logged-in p{
+  font-size: 0.7rem;
 }
 
 
@@ -45,7 +99,7 @@ html, body {
 
 .footer {
     /* background-color: #A48E65; */
-    background-color: #402E32;
+    background-color: var(--notsure);
     position: fixed;
     bottom: 0;
     height: 100px;
@@ -66,13 +120,13 @@ html, body {
 
 /* List View */
 
-.card {
+/* .card {
     transition: transform 0.3s;
   }
   
 .card:hover {
     transform: translateY(-5px);
-  }
+  } */
   
 .card-img-top {
     height: 200px;
@@ -91,7 +145,14 @@ html, body {
     background-size: cover;
     color: #fff;
     padding: 100px 0;
-    margin-bottom: 0;
+  
+  }
+
+  .jumbotron .welcome-text {
+    font-family: "Bilbo Swash Caps", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 5rem;
   }
 
   .btn-primary {
@@ -99,8 +160,51 @@ html, body {
       border-color: #ff7f50; 
   }
 
-  .btn-primary:hover
-  .btn-primary:active {
+  .btn-primary:hover {
       background-color: #ff6347; 
       border-color: #ff6347;
   }
+
+  #about-text,
+  #contact-text {
+    font-family: "Bilbo Swash Caps", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3rem;
+    padding: 3rem;
+  }
+
+  .menu-img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .menu-text {
+    text-align: center;
+  }
+  .menu-text p, span {
+    font-family: "Edu NSW ACT Foundation", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    color: #333; 
+
+  }
+
+  /* add recipe html */
+
+  .recipe-form {
+    background-color: var(--newfont);
+    border-radius: 2rem;
+    border: 2px solid var(--newfont);
+    margin: 0 auto;
+   
+}
+
+
+.row {
+  margin: 0;
+}
+
