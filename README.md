@@ -80,5 +80,15 @@ In this section you need to reference where you got your content, media and extr
 
 You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
+media: 
+-logo - https://logo.com
+-recipe images - https://www.freepik.com
+
+videos wathced:
+- https://www.youtube.com/@TechWithTim
+- https://www.youtube.com/@IonaFrisbee
+- https://www.youtube.com/@NetNinja
+- https://www.youtube.com/@dominicvacchiano
+
 
 
