@@ -90,5 +90,9 @@ videos wathced:
 - https://www.youtube.com/@NetNinja
 - https://www.youtube.com/@dominicvacchiano
 
+- code:
+- code institue blog - https://github.com/Code-Institute-Solutions/blog/tree/main
+- chatgpt - for help with solving errors,bugs and general questions, also generated all the recipes to polulate the website.
+- https://www.w3schools.com/django/index.php
 
 
