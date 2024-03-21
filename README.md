@@ -40,7 +40,7 @@ Recipeze is a Django-based recipe website designed to simplify the process of di
 - Other feature ideas
 
 ## Planning
-The Recipeze planning process involved meticulous definition of user stories, creation of wireframes, and careful outlining of the database schema. Project management tools like Trello or Asana were employed to organize tasks efficiently.
+The Recipeze planning process involved creating user stories for both users, logged in and logged out. The creation of wireframes was made on Balsamiq , the database schema was created on https://lucid.app . Project management tools i used were Github projects to organize tasks efficiently.
 
 ### User stories 
 
@@ -61,9 +61,33 @@ The Recipeze planning process involved meticulous definition of user stories, cr
 | dispaly messages | see feedback updates | I want to display a message when posted a new recipe | :white_check_mark: | Improve messaging interface |
 | -------- | -------- | i want to display a warning message if you are about to delete a recipe | -------- | :white_check_mark: |
 
+### Models
+
+This was my original planned model 
+
+![ERD](static/images/readme/recipe.png)
+
+and this is the model i am using 
 
 ## Wireframes
-Explore the visual representation of Recipeze's layout and user interface. These blueprints provide insights into the application's design, ensuring a user-friendly experience.
+Explore the visual representation of Recipeze's layout and user interface. These blueprints provide insights into the application's design, ensuring a user-friendly experience and will be fully responsive and accessible on mobile, tablet and desktop devices.
+
+| Home | About |
+|---|---|
+| ![Home](static/images/readme/Home.png)<br>View of the home wireframe with logged in/ logged out view | ![About](static/images/readme/About.png)<br>View of the home wireframe with logged in/ logged out view |
+
+| Recipes List | Recipes Detail |
+|---|---|
+| ![Recipes List](static/images/readme/Recipie-list.png)<br>View of the recipe list with logged in/ logged out view  | ![Recipes Detail](static/images/readme/Recipie-view.png)<br>View of the recipe detail with logged in/ logged out view |
+
+| Add Recipe | Profile |
+|---|---|
+| ![Add Recipe](static/images/readme/Add-recipe.png)<br>View of the add recipe page  | ![Profile](static/images/readme/Profile.png)<br>View of profile page|
+
+| Register | Sign in |
+|---|---|
+| ![Register](static/images/readme/Register.png)<br>View of the register page  | ![Sign in](static/images/readme/Sign-in.png)<br>View of the sign in page|
+
 
 ## Testing
 Recipeze is fortified with unit tests to guarantee the reliability and functionality of its core features. 
@@ -84,6 +108,8 @@ bugs or problems you discovered during your testing, even if you haven't address
 ### Unfixed Bugs
 
 unfixed bugs and why they were not fixed. 
+
+- print button, printing out the page and not just the form.
 
 ## Deployment
 
