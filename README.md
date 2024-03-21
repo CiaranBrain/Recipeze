@@ -42,6 +42,26 @@ Recipeze is a Django-based recipe website designed to simplify the process of di
 ## Planning
 The Recipeze planning process involved meticulous definition of user stories, creation of wireframes, and careful outlining of the database schema. Project management tools like Trello or Asana were employed to organize tasks efficiently.
 
+### User stories 
+
+| I want to | So i can | Acceptance Criteria | Achieved | Next Iteration | 
+| -------- | -------- | -------- | -------- | -------- |
+| Create an account  | Edit my profile, create recipes, and comment/review recipes  | Users should be able to create an account with a username, password, and potentially an email address.| :white_check_mark: | -------- |
+|--------|--------|Logged-in users should have access to features like saving recipes, creating recipes, and potentially rating/commenting on recipes  | :white_check_mark: | Add saved recipes section |
+| Create/add new recipes   | Share them with everyone else   | I can create new recipes by adding a title, description, ingredients, instructions, image, and category.| :white_check_mark: | Enhance recipe categorization |
+| Edit my posted recipes | ammend any issues/details | I can edit my existing recipes | :white_check_mark: | -------- |
+| Delete my posted recipes | so they are removed | I can delete my own recipes. | :white_check_mark: | -------- |
+| View all the recipes | so i can see which one i like the most | The website should have a section or page displaying a list of the all added recipes. | :white_check_mark: | Implement search and filter functionality |
+| -------- | -------- | This list should update automatically as new recipes are created. | :white_check_mark: | -------- |
+| View a detailed view | see all the information in the recipe | Clicking on a recipe in list should display a detailed page for that recipe. | :white_check_mark: | Implement related recipes section |
+| -------- | -------- | The recipe details page should display the recipe's title, description, ingredients, instructions, image (if uploaded), and category. | :white_check_mark: | -------- |
+| leave a review | people can see if it is good or not | Logged-in users should be able to rate recipes using a star rating system or similar method. | -------- | :white_check_mark: |
+| -------- | -------- | Users should be able to write a review for a recipe along with their rating (optional). | -------- | :white_check_mark: |
+| -------- | -------- | The average rating and potentially some user reviews should be displayed on the recipe detail page. | -------- | :white_check_mark: |
+| dispaly messages | see feedback updates | I want to display a message when posted a new recipe | :white_check_mark: | Improve messaging interface |
+| -------- | -------- | i want to display a warning message if you are about to delete a recipe | -------- | :white_check_mark: |
+
+
 ## Wireframes
 Explore the visual representation of Recipeze's layout and user interface. These blueprints provide insights into the application's design, ensuring a user-friendly experience.
 
