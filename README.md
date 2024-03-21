@@ -130,16 +130,16 @@ This project incorporates content and media from various sources. Here's a detai
 
 **Media:**
 
-* **Logo:** Logo source: [https://logo.com](https://logo.com) 
+* **Logo:** Logo sourced from: [https://logo.com](https://logo.com) 
 * **Recipe Images:** Sourced from Freepik: [https://www.freepik.com](https://www.freepik.com)
 
 **Tutorials and Reference:**
 
 * **Videos:** Thanks to the following YouTube channels for providing helpful tutorials:
-    - Tech With Tim ([https://www.youtube.com/hashtag/tech](https://www.youtube.com/hashtag/tech))
-    - Iona Frisbee ([https://www.youtube.com/watch?v=m_Qo7wpc9Yg](https://www.youtube.com/watch?v=m_Qo7wpc9Yg))
-    - Net Ninja ([https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg))
-    - dominicvacchiano ([https://www.youtube.com/watch?v=vbBrZfqUQsM](https://www.youtube.com/watch?v=vbBrZfqUQsM))
+    - Tech With Tim ([https://www.youtube.com/@TechWithTim](https://www.youtube.com/@TechWithTim))
+    - Iona Frisbee ([https://www.youtube.com/@IonaFrisbee](https://www.youtube.com/@IonaFrisbee))
+    - Net Ninja ([https://www.youtube.com/@NetNinja](https://www.youtube.com/@NetNinja))
+    - dominicvacchiano ([https://www.youtube.com/@dominicvacchiano](https://www.youtube.com/@dominicvacchiano))
 
 * **Code:** Some inspiration was used from the Code Institue blog, the content was reviewed and modified to suit my needs ([https://github.com/Code-Institute-Org](https://github.com/Code-Institute-Org))
 * **General Guidance:** [https://www.w3schools.com/django/index.php](https://www.w3schools.com/django/index.php) for providing a comprehensive Django reference.
