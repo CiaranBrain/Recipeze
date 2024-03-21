@@ -184,10 +184,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-SUMMERNOTE_THEME = 'bs5'
+
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode, default
     'iframe': True,
+
+    # Or, you can set it to `False` to use SummernoteInplaceWidget by default - no iframe mode
+    # In this case, you have to load Bootstrap/jQuery sources and dependencies manually.
+    # Use this when you're already using Bootstrap/jQuery based themes.
+    'iframe': False,
 
     # You can put custom Summernote settings
     'summernote': {
@@ -204,11 +209,17 @@ SUMMERNOTE_CONFIG = {
         # Toolbar customization
         # https://summernote.org/deep-dive/#custom-toolbar-popover
         'toolbar': [
+            ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
-            ['insert', ['link',]],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
         ],
 
-    },
-
+        # Or, explicitly set language/locale for editor
+        'lang': 'ko-KR',
+    }
 }

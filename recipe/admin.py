@@ -13,7 +13,7 @@ class RecipeAdmin(SummernoteModelAdmin):
     list_display = ('title', 'description',
      'ingredients', 'instructions', 'author', 'created_on',
       'category', 'recipe_image')
-    summernote_fields = 'title','description', 'ingredients', 'instructions'
+    summernote_fields = ('title','description', 'ingredients', 'instructions')
     list_filter = ('posted',)
 
 admin.site.register(Category, CategoryAdmin)

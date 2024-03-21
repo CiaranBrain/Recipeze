@@ -22,10 +22,6 @@
   margin: 0px;
   padding: 0px;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--newfont);
 
 }
 
@@ -44,8 +40,6 @@ body {
   min-height: 100vh;
   padding-bottom: 30px;
   background-color: #F8EDEB;
-  /* background: rgb(255,190,121);
-  background: linear-gradient(0deg, rgba(255,190,121,1) 0%, rgba(237,225,209,1) 100%); */
 }
 
 /* messages */
@@ -166,11 +160,28 @@ body {
 .btn-primary {
   background-color: #ff7f50;
   border-color: #ff7f50;
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .btn-primary:hover {
   background-color: #ff6347;
   border-color: #ff6347;
+}
+
+.big-button {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.menu-button {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
 }
 
 #about-text,
@@ -206,14 +217,64 @@ span {
 /* add recipe html */
 
 .recipe-form {
-  background-color: #F9DCC4;
-
+  background-color: #957186;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+  
   border-radius: 2rem;
   border: 2px solid var(--newfont);
   margin: 0 auto;
 
 }
 
+.recipe-form, h2{
+  color: rgb(2, 1, 1);
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  padding: 3rem;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+}
+
+.form-label {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #333;
+
+}
+
+.about-title  {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+.about-subhead {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+
+}
+
+.card-text{
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+
+}
+
+.card-title {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
 
 .row {
   margin: 0;
