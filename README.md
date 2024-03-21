@@ -98,6 +98,48 @@ how your project looks and works on different browsers and screen sizes.
 
 bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
+### Manual Testing 
+
+Admin Testing
+| Test | Result |
+| --- | --- |
+| Admin can add a recipe from admin panel | Pass |
+| Admin can edit/delete recipes | Pass |
+|Admin can use summernote features(bullet points, bold, underlined) | Pass|
+
+Non logged in user tests
+| Test | Result |
+| --- | --- |
+| user can only see "home, about, recipes, regiser and log in" | pass |
+| user can't add recipe when manualy adding "/add_recipe" | Pass |
+
+Account sign up tests 
+| Test | Result |
+| --- | --- |
+| User can create profile |	Pass |
+| User can log into profile | Pass |
+| User can log out of profile |	Pass |
+| Messages are displaying |	Pass |
+| shows if you are signed in or out | Pass |
+
+Navigation Tests 
+| Test | Result |
+| --- | --- |
+| User can nagivate to home by "Home" in navbar or navbrand | Pass |
+| User can nagivate to about by "About" in navbar | Pass |
+| User can nagivate to recipes by "Recipes" in navbar or homepage when logged in | Pass |
+| User can nagivate to profile by "Profile" in navbar when logged in | Fail |
+| User can nagivate to register by "Register" in navbar or homepage when not logged in | Pass |
+| User can nagivate to login by "Login" in navbar | Pass |
+
+Authorisation Tests 
+| Test | Result |
+| --- | --- |
+| Only logged in users can add recipe | Pass |
+| Only logged in users which posted recipe can edit/delete | Pass |
+| Only logged in users can comment | Pass |
+| Only logged in users which posted the comment can edit/delete | Pass |
+
 ### **Validator Testing** 
 
 - **HTML**
