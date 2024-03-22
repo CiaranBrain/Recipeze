@@ -1,70 +1,52 @@
-{% extends "base.html" %} 
-{% load static %} 
-{% load crispy_forms_tags %} 
-{% block title %}Recipes {% endblock %} 
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Recipes {% endblock %}
+{% block content %} 
 
 
-
-{% block content %}
 
 <div class="container">
   <h1 class="mb-4">Recipes</h1>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for recipe in recipes %}
     <div class="col">
-      <div class="card h-100">
+      <div class="card h-100"> 
         {% if "placeholder" in recipe.recipe_image.url %}
-        <img
-          class="card-img-top"
-          src="{% static 'images/menu.jpg' %}"
-          alt="placeholder"
-        />
+        <img class="card-img-top" src="{% static 'images/menu.jpg' %}"
+          alt="placeholder">
         {% else %}
-        <img
-          class="card-img-top"
-          src="{{ recipe.recipe_image.url }}"
-          alt="{{ recipe.title }}"
-        />
-        {% endif %}
-        <div class="card-body list-text">
-          <h4 class="card-title text-center">{{ recipe.title|safe}}</h4>
-          <p class="card-text">Description:{{ recipe.description|safe }}</p>
-          <p class="card-text">Category: {{ recipe.category|safe }}</p>
-          <p class="card-text">Author:{{ recipe.author|safe }}</p>
-          <p class="card-text text-muted">
-            Created On: {{ recipe.created_on }}
-          </p>
-          <a
-            href="{% url 'recipe_detail' recipe.id %}"
-            class="btn btn-primary menu-button"
-            >See Recipe</a
-          >
+        <img class="card-img-top" src="{{ recipe.recipe_image.url }}"
+          alt="{{ recipe.title }}">
+        {% endif %} 
+        <div class="card-body">
+          <h4 class="card-title text-center ">{{ recipe.title|safe }}</h4>
+          <h6 class="card-text"><strong>Description:</strong>{{ recipe.description|safe }}</h6>
+          <p class="card-text"><strong>Category:</strong> {{ recipe.category|safe }}</p>
+          <p class="card-text"><strong>Author:</strong> {{ recipe.author }}</p>
+          <p class="card-text text-muted"><strong>Created On:</strong> {{ recipe.created_on }}</p>
+          <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary">See Recipe</a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
 
+
   <!-- Pagination links -->
   {% if is_paginated %}
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center mt-4">
       {% if page_obj.has_previous %}
-      <li class="page-item">
-        <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
-          >&laquo; Prev</a
-        >
-      </li>
-      {% endif %} 
+      <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Prev</a></li>
+      {% endif %}
       {% if page_obj.has_next %}
-      <li class="page-item">
-        <a href="?page={{ page_obj.next_page_number }}" class="page-link"
-          >Next &raquo;</a
-        >
-      </li>
+      <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">Next &raquo;</a></li>
       {% endif %}
     </ul>
   </nav>
   {% endif %}
 </div>
 {% endblock %}
+
+{{ description|safe }}

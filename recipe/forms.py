@@ -15,10 +15,8 @@ class RecipeForm(forms.ModelForm):
             # 'description': forms.Textarea(attrs={'rows': 4}),
             # 'ingredients': forms.Textarea(attrs={'rows': 6}),
             # 'instructions': forms.Textarea(attrs={'rows': 10}),
-            # 'title': SummernoteWidget(),
-            # 'description' : SummernoteWidget(),
-            'ingredients' : SummernoteWidget(),
-            'instructions' : SummernoteWidget(),            
+            'ingredients': SummernoteWidget(),
+            'instructions': SummernoteWidget(),            
         }
         
 # comment form

@@ -3,49 +3,70 @@
 {% block title %}About{% endblock %}
 {% block content %}
 
-
 <header class="container py-3">
-    <div class="d-flex flex-column align-items-center">
-      <h1 class="display-4 about-title">About Recipeze</h1>
-      <p class="lead about-subhead">A recipe sharing hub for passionate cooks.</p>
-      <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg big-button mt-3">Join the Community</a> 
+  <div class="d-flex flex-column align-items-center">
+    <h1 class="display-4 about-title">About Recipeze</h1>
+    <p class="lead about-subhead">A recipe sharing hub for passionate cooks.</p>
+    <a
+      href="{% url 'account_signup' %}"
+      class="btn btn-primary btn-lg big-button mt-3"
+      >Join the Community</a
+    >
+  </div>
+</header>
+
+<div class="container">
+  <section class="row mb-5">
+    <div class="col-md-6">
+      <img src="static/images/love-n.png" alt="" class="img-fluid rounded" />
     </div>
-  </header>
+    <div class="col-md-6">
+      <h2>A World of Inspiration Awaits</h2>
+      <p>
+        Welcome to our recipe sharing hub! Here, you'll discover a world of
+        culinary inspiration crafted by passionate cooks, just like you. We
+        believe that food has the power to bring people together and create
+        lasting memories. Join our vibrant community to find, save, and share
+        delicious recipes that will bring joy to your table and nourish your
+        loved ones.
+      </p>
+    </div>
+  </section>
 
-  <main class="container">
-    <section class="row mb-5">
-      <div class="col-md-6">
-        <img src="static/images/love-n.png" alt="" class="img-fluid rounded">
-      </div>
-      <div class="col-md-6">
-        <h2>A World of Inspiration Awaits</h2>
-        <p>Welcome to our recipe sharing hub! Here, you'll discover a world of culinary inspiration crafted by passionate cooks, just like you. We believe that food has the power to bring people together and create lasting memories. 
-            Join our vibrant community to find, save, and share delicious recipes that will bring joy to your table and nourish your loved ones.</p>
-      </div>
-    </section>
+  <section class="row mb-5">
+    <div class="col-md-6">
+      <h2>A Journey Through Flavors</h2>
+      <p>
+        Briefly share the history of your website. When was it launched? What
+        were the major milestones achieved?
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="static/images/love-n.png" alt="" class="img-fluid rounded" />
+    </div>
+  </section>
 
-    <section class="row mb-5">
-      <div class="col-md-6">
-        <h2>A Journey Through Flavors</h2>
-        <p> Briefly share the history of your website. When was it launched? What were the major milestones achieved? 
-        </p>
-      </div>
-      <div class="col-md-6">
-        <img src="static/images/love-n.png" alt="" class="img-fluid rounded">
-      </div>
-    </section>
-
-    <section class="row">
-      <div class="col-12">
-        <h2>Unveiling Our Features</h2>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Discover a vast library of recipes from every corner of the world.</li>
-            <li class="list-group-item">Save your favorite recipes and create personalized collections for easy access.</li>
-            <li class="list-group-item">Share your culinary creations with the community and inspire others.</li>
-            <li class="list-group-item">Connect with fellow food enthusiasts, swap cooking tips, and learn from each other.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+  <section class="row">
+    <div class="col-12">
+      <h2>Unveiling Our Features</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          Discover a vast library of recipes from every corner of the world.
+        </li>
+        <li class="list-group-item">
+          Save your favorite recipes and create personalized collections for
+          easy access.
+        </li>
+        <li class="list-group-item">
+          Share your culinary creations with the community and inspire others.
+        </li>
+        <li class="list-group-item">
+          Connect with fellow food enthusiasts, swap cooking tips, and learn
+          from each other.
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
 
 {% endblock %}

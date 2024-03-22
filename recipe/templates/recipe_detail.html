@@ -1,82 +1,131 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %} {{ recipe.title }} {% endblock %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %} {{ recipe.title }}{% endblock %} 
 
 {% block content %}
 
 <div class="container">
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="col-md-4">
-          {% if "placeholder" in recipe.recipe_image.url %}
-          <img src="{% static 'images/menu.jpg' %}" class="img-fluid rounded-start" alt="placeholder">
-          {% else %}
-          <img src="{{ recipe.recipe_image.url }}" class="img-fluid rounded-start" alt="{{ recipe.title }}">
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        {% if "placeholder" in recipe.recipe_image.url %}
+        <img
+          src="{% static 'images/menu.jpg' %}"
+          class="img-fluid rounded-start"
+          alt="placeholder"
+        />
+        {% else %}
+        <img
+          src="{{ recipe.recipe_image.url }}"
+          class="img-fluid rounded-start"
+          alt="{{ recipe.title }}"
+        />
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" id="printableForm">
+          <h2 class="card-title">{{ recipe.title|safe }}</h2>
+          <p class="card-text">{{ recipe.description|safe }}</p>
+          <p class="card-text">
+            <small class="text-muted">Author: {{ recipe.author }}</small>
+          </p>
+          <p class="card-text">
+            <small class="text-muted"
+              >Created on: {{ recipe.created_on }}</small
+            >
+          </p>
+          <hr />
+          <h3>Ingredients:</h3>
+          <p class="card-text">{{ recipe.ingredients|safe }}</p>
+          <hr />
+          <h3>Instructions:</h3>
+          <p class="card-text">{{ recipe.instructions|safe }}</p>
+          <hr />
+          {% if user == recipe.author %}
+          <form
+            action="{% url 'edit_recipe' recipe.id %}"
+            method="get"
+            style="display: inline"
+          >
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </form>
+          <form
+            action="{% url 'delete_recipe' recipe.id %}"
+            method="post"
+            style="display: inline"
+          >
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
           {% endif %}
-        </div>
-        <div class="col-md-8">
-          <div class="card-body" id="printableForm">
-            <h2 class="card-title">{{ recipe.title|safe }}</h2>
-            <p class="card-text">{{ recipe.description|safe }}</p>
-            <p class="card-text"><small class="text-muted">Author: {{ recipe.author }}</small></p>
-            <p class="card-text"><small class="text-muted">Created on: {{ recipe.created_on }}</small></p>
-            <hr />
-            <h3>Ingredients:</h3>
-            <p class="card-text">{{ recipe.ingredients|safe }}</p>
-            <hr />
-            <h3>Instructions:</h3>
-            <p class="card-text">{{ recipe.instructions|safe }}</p>
-            <hr />
-            {% if user == recipe.author %}
-                    <form action="{% url 'edit_recipe' recipe.id %}" method="get" style="display:inline;">
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </form>
-                    <form action="{% url 'delete_recipe' recipe.id %}" method="post" style="display:inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                    {% endif %}
-            <a href="{% url 'recipe-list' %}" class="btn btn-primary">Back to Recipe List</a>
-            <button style="display:inline;" type="button" id="printButton" onclick="printForm()" class="btn btn-primary">Print</button>
-          </div>
+          <a href="{% url 'recipe-list' %}" class="btn btn-primary"
+            >Back to Recipe List</a
+          >
+          <button
+            style="display: inline"
+            type="button"
+            id="printButton"
+            onclick="printForm()"
+            class="btn btn-primary"
+          >
+            Print
+          </button>
         </div>
       </div>
     </div>
-<div class="container mt-5">
-  <h2>Comments</h2>
-  {% for comment in comments %}
-  <div class="card mb-3" id="comment-{{ comment.id }}">
-      <div class="card-body">
-          <h5 class="card-title">{{ comment.author.username }}</h5>
-          <p class="card-text">{{ comment.comment }}</p>
-          <p class="text-muted">Date Posted: {{ comment.created_on }}</p>
-
-          {% if comment.author == user %}
-              <!-- <button class="btn btn-sm btn-primary btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-              <button class="btn btn-sm btn-danger btn-delete" data-comment_id="{{ comment.id }}">Delete</button> -->
-              <form action="{% url 'edit_comment' recipe.id comment.id %}" method="get" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-primary">Edit</button>
-            </form>
-            <form action="{% url 'delete_comment' recipe.id comment.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-          {% endif %}
-      </div>
   </div>
-  {% endfor %}
-  <form id="commentForm" method="post" action="{% url 'add_comment' recipe.id %}">
+  <div class="container mt-5">
+    <h2>Comments</h2>
+    {% for comment in comments %}
+    <div class="card mb-3" id="comment-{{ comment.id }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ comment.author.username }}</h5>
+        <p class="card-text">{{ comment.comment }}</p>
+        <p class="text-muted">Date Posted: {{ comment.created_on }}</p>
+
+        {% if comment.author == user %}
+        <!-- <button class="btn btn-sm btn-primary btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+              <button class="btn btn-sm btn-danger btn-delete" data-comment_id="{{ comment.id }}">Delete</button> -->
+        <form
+          action="{% url 'edit_comment' recipe.id comment.id %}"
+          method="get"
+          style="display: inline"
+        >
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+        <form
+          action="{% url 'delete_comment' recipe.id comment.id %}"
+          method="post"
+          style="display: inline"
+        >
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+    <form
+      id="commentForm"
+      method="post"
+      action="{% url 'add_comment' recipe.id %}"
+    >
       {% csrf_token %}
       <div class="form-group">
-        <textarea class="form-control" id="id_body" name="comment" rows="3" placeholder="Write your comment here"></textarea>
-        <button id="submitButton" type="submit" class="btn btn-primary">Submit Comment</button>
+        <textarea
+          class="form-control"
+          id="id_body"
+          name="comment"
+          rows="3"
+          placeholder="Write your comment here"
+        ></textarea>
+        <button id="submitButton" type="submit" class="btn btn-primary">
+          Submit Comment
+        </button>
       </div>
-      
-  </form>
+    </form>
+  </div>
 </div>
-
+{% block extras %} {% endblock %}
 {% endblock content %}
-{% block extras %}
-
-{% endblock %}

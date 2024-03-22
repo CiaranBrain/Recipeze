@@ -184,42 +184,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
 SUMMERNOTE_CONFIG = {
-    # Using SummernoteWidget - iframe mode, default
-    'iframe': True,
-
-    # Or, you can set it to `False` to use SummernoteInplaceWidget by default - no iframe mode
-    # In this case, you have to load Bootstrap/jQuery sources and dependencies manually.
-    # Use this when you're already using Bootstrap/jQuery based themes.
-    'iframe': False,
-
-    # You can put custom Summernote settings
-    'summernote': {
-        # As an example, using Summernote Air-mode
-        'airMode': False,
-
-        # Change editor size
-        'width': '100%',
-        'height': '480',
-
-        # Use proper language setting automatically (default)
-        'lang': None,
-
-        # Toolbar customization
-        # https://summernote.org/deep-dive/#custom-toolbar-popover
-        'toolbar': [
-            ['style', ['style']],
+    'ADMIN_TOOLBAR': False,  # Disable toolbar in admin
+    'LANG': None,
+    'THEME': 'bs5',  # Bootstrap 5 theme
+    'toolbar': [
             ['font', ['bold', 'underline', 'clear']],
-            ['fontname', ['fontname']],
-            ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']],
+            ['insert', ['link',]],
         ],
 
-        # Or, explicitly set language/locale for editor
-        'lang': 'ko-KR',
-    }
+    # Change editor size
+        'width': '100%',
+        'height': '480',
 }

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Roboto&display=swap');
 
+
 /* main defaults */
 :root {
 
@@ -22,7 +23,6 @@
   margin: 0px;
   padding: 0px;
   font-size: 16px;
-
 }
 
 main {
@@ -42,21 +42,41 @@ body {
   background-color: #F8EDEB;
 }
 
-/* messages */
-
-.alert {
-  background-color: rgba(230, 147, 24, 0.5);
-
+h2{
+  color: rgb(2, 1, 1);
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  padding: 3rem;
+  padding-bottom: 1rem;
+  margin: 0 auto;
 }
 
-/* navbar */
+.row {
+  margin: 0;
+}
+
+h6{
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* -------------------------------------------------- */
+
+/* ---------------------messages----------------------------- */
+.alert {
+  background-color: rgba(230, 147, 24, 0.5);
+}
+/* -------------------------------------------------- */
+
+/* ---------------------Nav Bar----------------------------- */
 .navbar-brand {
   font-family: "Bilbo Swash Caps", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 5rem;
   color: var(--font);
-
 }
 
 .navbar {
@@ -93,13 +113,10 @@ body {
 .logged-in p {
   font-size: 0.7rem;
 }
+/* -------------------------------------------------- */
 
-
-/* Footer styling */
-
+/* ---------------------Footer Styling----------------------------- */
 .footer {
-  /* background-color: #A48E65; */
-  /* background-color: #ffbe79; */
   background-color: #F9DCC4;
   position: fixed;
   bottom: 0;
@@ -113,23 +130,15 @@ body {
   font-size: 2rem;
   color: #DDBA73;
 }
+/* -------------------------------------------------- */
 
-/* signup form */
-
+/* ---------------------Sign Up Form----------------------------- */
 .form-text ul li {
   list-style: none;
 }
+/* -------------------------------------------------- */
 
-/* List View */
-
-/* .card {
-    transition: transform 0.3s;
-  }
-  
-.card:hover {
-    transform: translateY(-5px);
-  } */
-
+/* ---------------------List View HTML----------------------------- */
 .card-img-top {
   height: 200px;
   object-fit: cover;
@@ -138,16 +147,14 @@ body {
 .pagination {
   margin-top: 20px;
 }
+/* -------------------------------------------------- */
 
-
-/* home page  */
-
+/* ---------------------Home Page HTML----------------------------- */
 .jumbotron {
   background-image: url("../images/recipe-background.jpg");
   background-size: cover;
   color: #fff;
   padding: 100px 0;
-
 }
 
 .jumbotron .welcome-text {
@@ -211,29 +218,15 @@ span {
   font-style: normal;
   font-size: 2rem;
   color: #333;
-
 }
+/* -------------------------------------------------- */
 
-/* add recipe html */
-
+/* ---------------------Add Recipe HTML----------------------------- */
 .recipe-form {
   background-color: #957186;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
-  
   border-radius: 2rem;
   border: 2px solid var(--newfont);
-  margin: 0 auto;
-
-}
-
-.recipe-form, h2{
-  color: rgb(2, 1, 1);
-  font-family: "Bilbo Swash Caps", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 3rem;
-  padding: 3rem;
-  padding-bottom: 1rem;
   margin: 0 auto;
 }
 
@@ -243,14 +236,13 @@ span {
   font-style: normal;
   font-size: 2rem;
   color: #333;
-
 }
 
+/* ---------------------About HTML----------------------------- */
 .about-title  {
   font-family: "Bilbo Swash Caps", cursive;
   font-weight: 400;
   font-style: normal;
-
 }
 
 .about-subhead {
@@ -258,17 +250,10 @@ span {
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
-
 }
+/* -------------------------------------------------- */
 
-.card-text{
-  font-family: "Edu NSW ACT Foundation", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 1rem;
-
-}
-
+/* ---------------------Card Text----------------------------- */
 .card-title {
   font-family: "Bilbo Swash Caps", cursive;
   font-weight: 400;
@@ -276,13 +261,15 @@ span {
   font-size: 2rem;
 }
 
-.row {
-  margin: 0;
+.card-text{
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
 }
+/* -------------------------------------------------- */
 
-
-/* pagination */
-
+/* ---------------------Pagination----------------------------- */
 .pagination .page-link {
   color: orangered;
 }
@@ -290,3 +277,4 @@ span {
 .pagination .page-link:hover {
   color: orange;
 }
+/* -------------------------------------------------- */
