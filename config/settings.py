@@ -28,7 +28,7 @@ cloudinary.config(
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
-    # apps 
+    # apps
     'recipe',
     'home',
 
@@ -109,7 +109,6 @@ TEMPLATES = [
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
-                
             ]
         },
     },
@@ -129,8 +128,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # }
 
 DATABASES = {
-'default':
-dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default':
+        dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 CSRF_TRUSTED_ORIGINS = [
@@ -191,10 +190,10 @@ SUMMERNOTE_CONFIG = {
     'toolbar': [
             ['font', ['bold', 'underline', 'clear']],
             ['para', ['ul', 'ol', 'paragraph']],
-            ['insert', ['link',]],
+            ['insert', ['link', ]],
         ],
 
     # Change editor size
-        'width': '100%',
-        'height': '480',
+    'width': '100%',
+    'height': '480',
 }

@@ -8,6 +8,7 @@ from django.contrib import messages
 
 import cloudinary.uploader
 
+
 # Recipe List View for a list view in html
 class RecipeListView(ListView):
     model = Recipe
@@ -18,25 +19,28 @@ class RecipeListView(ListView):
     def get_queryset(self):
         return Recipe.objects.filter(posted=1).order_by('-created_on')
 
+
 # comment section
 @login_required
 def add_comment(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         comment_text = request.POST.get('comment')
-        Comment.objects.create(author=request.user, recipe=recipe, comment = comment_text)
+        Comment.objects.create(author=request.user, recipe=recipe,
+                               comment=comment_text)
         messages.add_message(
             request, messages.SUCCESS,
             'Comment submitted'
         )
         return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'add_comment.html')
-    
+
 
 @login_required
 def edit_comment(request, recipe_id, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id, author=request.user)
-    recipe = get_object_or_404(Recipe, pk=recipe_id)  #needed this to redirect correctly
+    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id,
+                                author=request.user)
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         comment_text = request.POST.get('comment')
         if comment_text:
@@ -49,10 +53,12 @@ def edit_comment(request, recipe_id, comment_id):
             return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'edit_comment.html', {'comment': comment})
 
+
 @login_required
 def delete_comment(request, recipe_id, comment_id):
-    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id, author=request.user)
-    recipe = get_object_or_404(Recipe, pk=recipe_id)  #needed this to redirect correctly 
+    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id,
+                                author=request.user)
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         comment.delete()
         messages.add_message(
@@ -61,6 +67,7 @@ def delete_comment(request, recipe_id, comment_id):
             )
         return redirect('recipe_detail', recipe_id=recipe.id)
     return render(request, 'delete_comment.html', {'comment': comment})
+
 
 # Detailed Recipe view
 class RecipeDetailView(DetailView):
@@ -71,13 +78,15 @@ class RecipeDetailView(DetailView):
     def get_object(self):
         recipe_id = self.kwargs.get("recipe_id")
         return get_object_or_404(Recipe, pk=recipe_id)
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comments'] = Comment.objects.filter(recipe=self.get_object()).order_by('-created_on')
+        context['comments'] = Comment.objects.filter(
+            recipe=self.get_object()).order_by('-created_on')
         return context
 
-# Add edit or delete recipe 
+
+# Add edit or delete recipe
 @login_required
 def add_recipe(request):
     if request.method == 'POST':
@@ -95,6 +104,7 @@ def add_recipe(request):
         form = RecipeForm()
     return render(request, 'add_recipe.html', {'form': form})
 
+
 @login_required
 def edit_recipe(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
@@ -111,6 +121,7 @@ def edit_recipe(request, recipe_id):
         form = RecipeForm(instance=recipe)
     return render(request, 'edit_recipe.html', {'form': form})
 
+
 @login_required
 def delete_recipe(request, recipe_id):
     recipe = get_object_or_404(Recipe, pk=recipe_id)
@@ -122,5 +133,3 @@ def delete_recipe(request, recipe_id):
             )
         return redirect('recipe-list')
     return render(request, 'delete_recipe.html', {'recipe': recipe})
-
-# UserProfile section
