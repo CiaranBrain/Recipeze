@@ -238,10 +238,10 @@ This project incorporates content and media from various sources. Here's a detai
 **Tutorials and Reference:**
 
 Thanks to the following YouTube channels for providing helpful tutorials:
-  - Tech With Tim ([https://www.youtube.com/@TechWithTim](https://www.youtube.com/@TechWithTim))
-  - Iona Frisbee ([https://www.youtube.com/@IonaFrisbee](https://www.youtube.com/@IonaFrisbee))
-  - Net Ninja ([https://www.youtube.com/@NetNinja](https://www.youtube.com/@NetNinja))
-  - dominicvacchiano ([https://www.youtube.com/@dominicvacchiano](https://www.youtube.com/@dominicvacchiano))
+  - Tech With Tim ([YouTube Channel](https://www.youtube.com/@TechWithTim))
+  - Iona Frisbee ([YouTube Channel](https://www.youtube.com/@IonaFrisbee))
+  - Net Ninja ([YouTube Channel](https://www.youtube.com/@NetNinja))
+  - dominicvacchiano ([YouTube Channel](https://www.youtube.com/@dominicvacchiano))
 
  **Code:** 
   - Some inspiration was used from the Code Institue blog, the content was reviewed and modified to suit my needs ([https://github.com/Code-Institute-Org](https://github.com/Code-Institute-Org))
