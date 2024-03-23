@@ -5,14 +5,10 @@
 :root {
 
   /* Colours */
-  --orange: #ff7f50;
-  --purlpish: #402E32;
   --font: #374151;
-  --background: #FFBE79;
-  --almostwhite: #FFF8E8;
-  --newbackgroud: #EDE1D1;
-  --newfont: #6A704C;
-  --notsure: #412E27;
+  --background: #F8EDEB;
+  --button: #ff7f50;
+  --button-active: #ff6347;
 
   /* Utils */
   --small-box-shadow: 1px -1px 7px 0 #00000061;
@@ -39,7 +35,7 @@ html,
 body {
   min-height: 100vh;
   padding-bottom: 30px;
-  background-color: #F8EDEB;
+  background-color: var(--background);
   background: linear-gradient(35deg, rgba(248, 237, 235, 1), transparent);
 }
 
@@ -157,7 +153,7 @@ h6{
 
 /* ---------------------Home Page HTML----------------------------- */
 .jumbotron {
-  background-image: url("../images/recipe-background.jpg");
+  background-image: url("../images/jumbotronblue.webp");
   background-size: cover;
   color: #fff;
   padding: 100px 0;
@@ -175,21 +171,17 @@ h6{
   text-shadow: 0 0 20px black;
 }
 
-.jumbo-bckgrd {
-  /* background: linear-gradient(35deg, rgba(249, 220, 196, 1), transparent); */
-    }
-
 .btn-primary {
-  background-color: #ff7f50;
-  border-color: #ff7f50;
+  background-color: var(--button);
+  border-color: var(--button);
   font-family: "Edu NSW ACT Foundation", cursive;
   font-weight: 400;
   font-style: normal;
 }
 
 .btn-primary:hover {
-  background-color: #ff6347;
-  border-color: #ff6347;
+  background-color: var(--button-active);
+  border-color: var(--button-active);
 }
 
 .big-button {

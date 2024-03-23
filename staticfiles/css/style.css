@@ -1,37 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Roboto&display=swap');
 
+
 /* main defaults */
 :root {
 
-    /* Colours */
-    --orange: #ff7f50;
-    --purlpish: #402E32;
-    --font: #374151;
-    --background: #FFBE79;
-    --almostwhite: #FFF8E8;
-    --newbackgroud: #EDE1D1;
-    --newfont: #6A704C;
-    --notsure: #412E27;
-    
-    /* Utils */
-    --small-box-shadow: 1px -1px 7px 0 #00000061;
-    --border: 1px solid #00000030;
+  /* Colours */
+  --font: #374151;
+  --background: #F8EDEB;
+  --button: #ff7f50;
+  --button-active: #ff6347;
+
+  /* Utils */
+  --small-box-shadow: 1px -1px 7px 0 #00000061;
+  --border: 1px solid #00000030;
 }
 
 * {
   margin: 0px;
   padding: 0px;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  color: var(--newfont);
-
 }
 
 main {
   flex: 1 0 auto;
-  padding-bottom: 40px; 
+  padding-bottom: 40px;
 }
 
 .container-fluid {
@@ -39,30 +31,57 @@ main {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   min-height: 100vh;
   padding-bottom: 30px;
-  background-color: var(--newbackgroud);
+  background-color: var(--background);
+  background: linear-gradient(35deg, rgba(248, 237, 235, 1), transparent);
 }
-/* messages */
 
+h2{
+  color: rgb(2, 1, 1);
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  padding: 3rem;
+  padding-bottom: 1rem;
+  margin: 0 auto;
+  text-shadow: 0 0 20px rgba(221, 186, 115, 1);
+}
+
+.row {
+  margin: 0;
+}
+
+h6{
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+/* -------------------------------------------------- */
+
+/* ---------------------messages----------------------------- */
 .alert {
   background-color: rgba(230, 147, 24, 0.5);
-
 }
-/* navbar */
+/* -------------------------------------------------- */
+
+/* ---------------------Nav Bar----------------------------- */
 .navbar-brand {
   font-family: "Bilbo Swash Caps", cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 5rem;
   color: var(--font);
-  
+  text-shadow: 0 0 20px rgba(221, 186, 115, 1);
 }
 
 .navbar {
   background-color: transparent;
   color: var(--font);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-nav .nav-link {
@@ -70,141 +89,197 @@ html, body {
   font-weight: 400;
   font-style: normal;
   font-size: 2rem;
-  color: #333; 
-  position: relative; 
+  color: #333;
+  position: relative;
+  text-shadow: 0 0 20px rgba(221, 186, 115, 1);
 }
 
 .navbar-nav .nav-link::after {
-  content: ''; 
-  display: block; 
-  width: 0; 
-  height: 2px; 
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
   background-color: #ff7f50;
-  position: absolute; 
-  bottom: -2px; 
-  left: 0; 
-  transition: width 0.3s ease; 
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease;
+
 }
 
 .navbar-nav .nav-link:hover::after {
-  width: 100%; 
+  width: 100%;
 }
 
-.logged-in p{
+.logged-in p {
   font-size: 0.7rem;
+  text-shadow: 0 0 20px rgba(221, 186, 115, 1);
 }
+/* -------------------------------------------------- */
 
-
-/* Footer styling */
-
+/* ---------------------Footer Styling----------------------------- */
 .footer {
-    /* background-color: #A48E65; */
-    background-color: var(--notsure);
-    position: fixed;
-    bottom: 0;
-    height: 100px;
-    width: 100%;
-    padding: 20px 0;
+  background: linear-gradient(0deg, rgba(249, 220, 196, 1), transparent);
+  position: fixed;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  padding: 20px 0;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer a {
-    font-size: 2rem;
-    color: #DDBA73;
+  font-size: 2rem;
+  color: #DDBA73;
 }
+/* -------------------------------------------------- */
 
-/* signup form */
-
+/* ---------------------Sign Up Form----------------------------- */
 .form-text ul li {
-    list-style: none;
+  list-style: none;
 }
+/* -------------------------------------------------- */
 
-/* List View */
-
-/* .card {
-    transition: transform 0.3s;
-  }
-  
-.card:hover {
-    transform: translateY(-5px);
-  } */
-  
+/* ---------------------List View HTML----------------------------- */
 .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
+  height: 200px;
+  object-fit: cover;
+}
+
 .pagination {
-    margin-top: 20px;
-  }
+  margin-top: 20px;
+}
+/* -------------------------------------------------- */
 
-
-  /* home page  */
-
-  .jumbotron {
-    background-image: url("../images/recipe-background.jpg");
-    background-size: cover;
-    color: #fff;
-    padding: 100px 0;
-  
-  }
-
-  .jumbotron .welcome-text {
-    font-family: "Bilbo Swash Caps", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 5rem;
-  }
-
-  .btn-primary {
-      background-color: #ff7f50;
-      border-color: #ff7f50; 
-  }
-
-  .btn-primary:hover {
-      background-color: #ff6347; 
-      border-color: #ff6347;
-  }
-
-  #about-text,
-  #contact-text {
-    font-family: "Bilbo Swash Caps", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3rem;
-    padding: 3rem;
-  }
-
-  .menu-img {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  .menu-text {
-    text-align: center;
-  }
-  .menu-text p, span {
-    font-family: "Edu NSW ACT Foundation", cursive;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2rem;
-    color: #333; 
-
-  }
-
-  /* add recipe html */
-
-  .recipe-form {
-    background-color: var(--newfont);
-    border-radius: 2rem;
-    border: 2px solid var(--newfont);
-    margin: 0 auto;
-   
+/* ---------------------Home Page HTML----------------------------- */
+.jumbotron {
+  background-image: url("../images/jumbotronblue.webp");
+  background-size: cover;
+  color: #fff;
+  padding: 100px 0;
 }
 
-
-.row {
-  margin: 0;
+.jumbotron .welcome-text {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
 }
 
+.jumbo-textbckgrd > h1,
+.jumbo-textbckgrd > p {
+  text-shadow: 0 0 20px black;
+}
+
+.btn-primary {
+  background-color: var(--button);
+  border-color: var(--button);
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-active);
+  border-color: var(--button-active);
+}
+
+.big-button {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.menu-button {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+
+#about-text,
+#contact-text {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  padding: 3rem;
+  text-shadow: 0 0 20px rgba(221, 186, 115, 1);
+}
+
+.menu-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.menu-text {
+  text-align: center;
+}
+
+.menu-text p,
+span {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #333;
+}
+/* -------------------------------------------------- */
+
+/* ---------------------Add Recipe HTML----------------------------- */
+.recipe-form {
+  border-radius: 2rem;
+  margin: 0 auto;
+}
+
+.form-label {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* ---------------------About HTML----------------------------- */
+.about-title  {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.about-subhead {
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+/* -------------------------------------------------- */
+
+/* ---------------------Card Text----------------------------- */
+.card-title {
+  font-family: "Bilbo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.card-text{
+  font-family: "Edu NSW ACT Foundation", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+}
+/* -------------------------------------------------- */
+
+/* ---------------------Pagination----------------------------- */
+.pagination .page-link {
+  color: orangered;
+}
+
+.pagination .page-link:hover {
+  color: orange;
+}
+/* -------------------------------------------------- */

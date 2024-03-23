@@ -1,12 +1,10 @@
-# Recipeze 
+# [Recipeze](https://recipeze-da8be575c94f.herokuapp.com)
 
-Welcome to Recipeze, your go-to destination for discovering and sharing delicious recipes. Whether you're a seasoned chef or a beginner in the kitchen, Recipeze is here to inspire your cooking adventures.
+![Responsive devices](static/images/readme/githubcover.png)
 
-Our platform is brimming with inspiration to transform your kitchen into a playground of flavors. Join our vibrant community of food enthusiasts and embark on a cooking odyssey filled with endless possibilities.
+[Deployed website](https://recipeze-da8be575c94f.herokuapp.com)
 
-Don't forget to leave comments and reviews on your favorite recipes, sharing your thoughts and insights to help others discover their next culinary masterpiece.
-
-- responsive picture here all devices
+[Am i Responsive](https://ui.dev/amiresponsive?url=https://recipeze-da8be575c94f.herokuapp.com)
 
 ## **Table of Contents**
 1. [Introduction](#introduction)
@@ -18,29 +16,55 @@ Don't forget to leave comments and reviews on your favorite recipes, sharing you
 7. [Credits](#credits)
 
 ## **Introduction**
-Recipeze is a Django-based recipe website designed to simplify the process of discovering, saving, and sharing your favorite recipes. The platform encourages a community of food enthusiasts to connect and exchange culinary experiences.
+
+Welcome to Recipeze, your go-to destination for discovering and sharing delicious recipes. Whether you're a seasoned chef or a beginner in the kitchen, Recipeze is here to inspire your cooking adventures.
+
+Our platform is brimming with inspiration to transform your kitchen into a playground of flavors. Join our vibrant community of food enthusiasts and embark on a cooking odyssey filled with endless possibilities.
+
+Don't forget to leave comments and reviews on your favorite recipes, sharing your thoughts and insights to help others discover their next culinary masterpiece.
+
+### Technologies Used
+Here's a breakdown of the technologies that was used in Recipeze:
+
+- Languages:
+  - HTML5: Provides the core structure and content of the web application.
+  - CSS3: Adds style and visual flair to the user interface.
+  - JavaScript: Enhances interactivity and user experience with dynamic features.
+  - Python: Serves as the backend language, powering the application's logic and functionality.
+
+- Frameworks:
+  - Bootstrap 5: Utilizes a popular CSS framework for rapid and responsive web development.
+  - Django: Leverages a powerful Python web framework to streamline development and enhance security.
+  - Databases & Deployment:
+
+- Database:
+  - ElephantSQL
+  - Cloudinary: media management by automatically delivering optimized images, enhancing user experience.
 
 ## **Features**
 - **User Authentication:** Sign up, log in, and manage your profile.
 - **Recipe Management:** Create, edit, delete, and save your favorite recipes.
-- **Recipe Categories:** Organize recipes into categories for easy browsing.
+- **Recipe List:** Organize recipes into a 3 x 3 grid for easy browsing.
 - **Responsive Design:** Access Recipeze from any device, ensuring a seamless experience on desktops, tablets, and mobile phones.
 
-- homepage screenshot, short description
-  picture here
-- about screenshot, short description
-  picture here
-- recipies screenshot, short description
-  picture here 
-- register screenshot, short description
-  picture here
-  
+![Recipe Menu](static/images/readme/recipelist.png)
+![User Authentication](static/images/readme/auth.png)
 ### **Features Left to Implement**
 
-- Other feature ideas
+- Profile Page
+- Saved Recipes 
+- Ratings
 
-## **Planning**
-The Recipeze planning process involved creating user stories for both users, logged in and logged out. The creation of wireframes was made on Balsamiq , the database schema was created on https://lucid.app . Project management tools i used were Github projects to organize tasks efficiently.
+## **Planning and Design**
+
+The Recipeze project began with a thorough planning process to ensure a well-structured application. Here's a breakdown of some of the steps involved:
+
+- **User Story Creation:** User stories were crafted to capture the functionalities desired by both logged-in users (those who have created an account) and logged-out users (visitors browsing the app). This approach ensures the application caters to the needs of various user groups.
+- **Wireframing with Balsamiq:** To visualize the application's layout and user interface (UI) elements, wireframes were created using Balsamiq. These wireframes are low-fidelity mockups that focus on the overall structure and user flow rather than aesthetics. 
+- **Database Schema Design:**  Lucidchart was used to design the Recipeze application's database schema. A database schema essentially defines how data will be organized within the application. Lucidchart provides a visual interface to model tables, columns, data types, and relationships between them. 
+- **Project Management with GitHub Projects:** To keep track of tasks, manage deadlines, and work efficiently, GitHub Projects were utilized. GitHub Projects is a built-in project management tool within the GitHub platform that allows for creating issue lists, assigning tasks, and tracking progress. 
+
+![Projects](static/images/readme/projects.png)
 
 ### **User stories** 
 
@@ -67,7 +91,6 @@ This was my original planned model
 
 ![ERD](static/images/readme/recipe.png)
 
-and this is the model i am using 
 
 ## **Wireframes**
 Explore the visual representation of Recipeze's layout and user interface. These blueprints provide insights into the application's design, ensuring a user-friendly experience and will be fully responsive and accessible on mobile, tablet and desktop devices.
@@ -142,24 +165,60 @@ Authorisation Tests
 
 ### **Validator Testing** 
 
-- **HTML**
-  - No errors were returned when passing through the official [W3C validator] 
-- **CSS**
-  - No errors were found when passing through the official [(Jigsaw) validator]
+- **HTML, CSS, PYTHON Tests**
+  - [VALIDATION TESTS](VALIDATION.md)
 
 ### **Unfixed Bugs**
 
 unfixed bugs and why they were not fixed. 
 
 - print button, printing out the page and not just the form.
+- cloudinary upload from form stopped working.
 
 ## **Deployment**
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub) 
+Here's a deployment section for your README tailored for a Django project using ElephantSQL and Cloudinary:
 
-**The live link can be found here :** 
-- **github** - https://github.com/CiaranBrain/Recipeze
-- **heroku** - https://recipeze-da8be575c94f.herokuapp.com
+## Deployment
+
+This Django project is designed for deployment on a platform that supports Python web applications. Here's a guideline for deployment:
+
+**1. Project Setup:**
+
+- Install required dependencies for deployment:
+    - `env.py`
+    - `Procfile`
+    - `gunicorn`
+    - `whitenoise`
+- Update `settings.py` with:
+    - ElephantSQL database configuration using `dj_database_url`.
+    - Cloudinary configuration for media storage (refer to Cloudinary's Django documentation).
+    - Set `DEBUG` to `False` for production.
+- Initialize a Git repository and configure version control.
+- Create a `Procfile` specifying the web server command (e.g., `web: gunicorn myproject.wsgi`).
+
+**2. Platform-Specific Deployment:**
+  - **Heroku:**
+      - Set the Python buildpack for your app in Heroku's settings.
+      - Install the `dj-database-url` and `cloudinary-storage` packages in Django.
+      - Install projects requirements 
+        - pip install -r requirements.txt
+      -  or if they are already installed on your environment 
+        - pip freeze --local > requirements.txt 
+      - Set environment variables in Heroku Config Vars
+
+      | Key | Value |
+      |----|----|
+      | CLOUDINARY_URL | use user's own value |
+      | DATABASE_URL | use user's own value |
+      | DISABLE_COLLECTSTATIC | 1 (this is temporary, and can be removed for the final deployment) |
+      | SECRET_KEY | use user's own value |
+
+**3. Additional Notes:**
+
+- Consider using a separate worker process for background tasks (e.g., Celery) if your project requires them. 
+- You might need to configure settings related to static files serving depending on the platform.
+- Refer to the platform's documentation for details on environment variables, configuration management, and scaling.
 
 ## **Credits**
 
@@ -167,21 +226,28 @@ This project incorporates content and media from various sources. Here's a detai
 
 **Content:**
 
-* **Recipes:** This project uses recipes generated by ChatGPT: [https://openai.com/blog/chatgpt/](https://openai.com/blog/chatgpt/).
+- **Recipes:** This project uses recipes generated by ChatGPT: [https://openai.com/blog/chatgpt/](https://openai.com/blog/chatgpt/).
   -While ChatGPT assisted with recipe generation, the content was reviewed and curated for accuracy and quality.  
 
 **Media:**
 
-* **Logo:** Logo sourced from: [https://logo.com](https://logo.com) 
-* **Recipe Images:** Sourced from Freepik: [https://www.freepik.com](https://www.freepik.com)
+- **Logo:** Logo sourced from: [https://logo.com](https://logo.com) 
+- **Recipe Images:** Sourced from Freepik: [https://www.freepik.com](https://www.freepik.com)
+- **Fonts** Used from googlefonts: [GoogleFonts](https://fonts.google.com)
 
 **Tutorials and Reference:**
 
-* **Videos:** Thanks to the following YouTube channels for providing helpful tutorials:
-    - Tech With Tim ([https://www.youtube.com/@TechWithTim](https://www.youtube.com/@TechWithTim))
-    - Iona Frisbee ([https://www.youtube.com/@IonaFrisbee](https://www.youtube.com/@IonaFrisbee))
-    - Net Ninja ([https://www.youtube.com/@NetNinja](https://www.youtube.com/@NetNinja))
-    - dominicvacchiano ([https://www.youtube.com/@dominicvacchiano](https://www.youtube.com/@dominicvacchiano))
+Thanks to the following YouTube channels for providing helpful tutorials:
+  - Tech With Tim ([https://www.youtube.com/@TechWithTim](https://www.youtube.com/@TechWithTim))
+  - Iona Frisbee ([https://www.youtube.com/@IonaFrisbee](https://www.youtube.com/@IonaFrisbee))
+  - Net Ninja ([https://www.youtube.com/@NetNinja](https://www.youtube.com/@NetNinja))
+  - dominicvacchiano ([https://www.youtube.com/@dominicvacchiano](https://www.youtube.com/@dominicvacchiano))
 
-* **Code:** Some inspiration was used from the Code Institue blog, the content was reviewed and modified to suit my needs ([https://github.com/Code-Institute-Org](https://github.com/Code-Institute-Org))
-* **General Guidance:** [https://www.w3schools.com/django/index.php](https://www.w3schools.com/django/index.php) for providing a comprehensive Django reference.
+ **Code:** 
+  - Some inspiration was used from the Code Institue blog, the content was reviewed and modified to suit my needs ([https://github.com/Code-Institute-Org](https://github.com/Code-Institute-Org))
+  - Blog inspiration was helped from rachbry ([github profile](https://github.com/rachbry/recipme-django-cookbook))
+
+**General Guidance:** 
+- [W3 Schools](https://www.w3schools.com/django/index.php) for providing a comprehensive Django reference.
+- [Chat GPT](https://openai.com/blog/chatgpt/) for general help/problem solving 
+- Special thanks to  [Steve](https://github.com/stevewhitehouse66),  [Tariq](https://github.com/Tariq-845), [Manjula](https://github.com/mlal83), [Joel](https://github.com/joelezra) for help and support when working on my project.
