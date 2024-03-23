@@ -62,7 +62,7 @@ The Recipeze project began with a thorough planning process to ensure a well-str
 - **User Story Creation:** User stories were crafted to capture the functionalities desired by both logged-in users (those who have created an account) and logged-out users (visitors browsing the app). This approach ensures the application caters to the needs of various user groups.
 - **Wireframing with Balsamiq:** To visualize the application's layout and user interface (UI) elements, wireframes were created using Balsamiq. These wireframes are low-fidelity mockups that focus on the overall structure and user flow rather than aesthetics. 
 - **Database Schema Design:**  Lucidchart was used to design the Recipeze application's database schema. A database schema essentially defines how data will be organized within the application. Lucidchart provides a visual interface to model tables, columns, data types, and relationships between them. 
-- **Project Management with GitHub Projects:** To keep track of tasks, manage deadlines, and work efficiently, GitHub Projects were utilized. GitHub Projects is a built-in project management tool within the GitHub platform that allows for creating issue lists, assigning tasks, and tracking progress. 
+- **Project Management with GitHub Projects:** To keep track of tasks, manage deadlines, and work efficiently, GitHub Projects were utilized. GitHub Projects is a built-in project management tool within the GitHub platform that allows for creating issue lists, assigning tasks, and tracking progress. [Project Board](https://github.com/users/CiaranBrain/projects/6)
 
 ![Projects](static/images/readme/projects.png)
 
