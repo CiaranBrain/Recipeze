@@ -6,11 +6,14 @@ from .models import Category, Recipe, Comment
 
 
 class CategoryAdmin(admin.ModelAdmin):
+    """Admin model for managing recipe categories."""
     list_display = ('name',)
 
 
 @admin.register(Recipe)
 class RecipeAdmin(SummernoteModelAdmin):
+    """Admin model for managing recipes with enhanced text editing."""
+
     list_display = ('title', 'description', 'ingredients', 'instructions',
                     'author', 'created_on', 'category', 'recipe_image')
     summernote_fields = 'ingredients', 'instructions'

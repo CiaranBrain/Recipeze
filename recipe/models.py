@@ -10,6 +10,8 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
+    """Represents a category for classifying recipes."""
+
     name = models.CharField(max_length=255)
 
     def __str__(self):
@@ -17,6 +19,8 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
+    """Represents a recipe with detailed information and an image."""
+
     title = models.CharField(max_length=255)
     description = models.TextField()
     ingredients = models.TextField()
@@ -41,7 +45,8 @@ class RecipeForm(forms.ModelForm):
 
 class Comment(models.Model):
     """
-    Stores a single comment entry
+    Stores a single comment entry associated with a specific recipe.
+    Comments are ordered by creation date (ascending).
     """
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

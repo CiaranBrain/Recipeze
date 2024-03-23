@@ -11,18 +11,29 @@ import cloudinary.uploader
 
 # Recipe List View for a list view in html
 class RecipeListView(ListView):
+    """Generic class-based view for displaying a
+    paginated list of published recipes."""
     model = Recipe
     template_name = 'recipes_list.html'
     context_object_name = 'recipes'
     paginate_by = 9
 
     def get_queryset(self):
+        """Filters published recipes and
+        orders them by creation date (descending)."""
         return Recipe.objects.filter(posted=1).order_by('-created_on')
 
 
 # comment section
 @login_required
 def add_comment(request, recipe_id):
+    """
+    Allows logged-in users to submit a comment for a specific recipe.
+    - Retrieves the recipe using the recipe ID.
+    - Handles POST requests to create a new comment with the user
+     and recipe details.
+    - Displays success messages and redirects to the recipe detail page.
+    """
     recipe = get_object_or_404(Recipe, pk=recipe_id)
     if request.method == 'POST':
         comment_text = request.POST.get('comment')
@@ -38,6 +49,13 @@ def add_comment(request, recipe_id):
 
 @login_required
 def edit_comment(request, recipe_id, comment_id):
+    """
+    Allows logged-in users to edit their own comments on a specific recipe.
+    - Retrieves the comment and recipe using IDs and
+    checks if the user is the author.
+    - Handles POST requests to update the comment text.
+    - Displays success messages and redirects to the recipe detail page.
+    """
     comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id,
                                 author=request.user)
     recipe = get_object_or_404(Recipe, pk=recipe_id)
@@ -56,6 +74,13 @@ def edit_comment(request, recipe_id, comment_id):
 
 @login_required
 def delete_comment(request, recipe_id, comment_id):
+    """
+    Allows logged-in users to delete their own comments on a specific recipe.
+    - Retrieves the comment and recipe using IDs and
+    checks if the user is the author.
+    - Handles POST requests to delete the comment.
+    - Displays success messages and redirects to the recipe detail page.
+    """
     comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id,
                                 author=request.user)
     recipe = get_object_or_404(Recipe, pk=recipe_id)
@@ -71,11 +96,14 @@ def delete_comment(request, recipe_id, comment_id):
 
 # Detailed Recipe view
 class RecipeDetailView(DetailView):
+    """Generic class-based view for displaying
+    the details of a specific recipe."""
     model = Recipe
     template_name = 'recipe_detail.html'
     context_object_name = 'recipe'
 
     def get_object(self):
+        """Retrieves the recipe using the recipe ID from the URL."""
         recipe_id = self.kwargs.get("recipe_id")
         return get_object_or_404(Recipe, pk=recipe_id)
 
